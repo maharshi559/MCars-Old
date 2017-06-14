@@ -12,6 +12,9 @@
 
     <!-- Custom CSS -->
     <link href="css/custom.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+
+
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular-route.js"></script>
@@ -21,15 +24,19 @@
 <body>
    <header>
        <div class="row">
-           <div class="col-sm-3 col-md-3"><a href="#menu-toggle" id="menu-toggle"><span class="fa fa-bars" ></span></a></div>
-       <div class="col-md-6"><h2><span class="fa fa-car "></span>    M Cars Manager</h2></div>
-       <div class="col-md-3">
-           <div class="right">
-               <p><span class=""></span></p>
-               <p><span class=""></span></p>
-               <p><span class=""></span></p>
+           <div col-md-4>
+               <a href="#menu-toggle" id="menu-toggle"><span class="fa fa-bars" ></span></a>
            </div>
-       </div>
+           <div col-md-4>
+               <h2><span class="fa fa-car "></span>    M Cars Manager</h2>
+           </div>
+           <div col-md-4>
+               <div class="right">
+                   <span class="fa fa-bell"></span>
+                   <span class="fa fa-user-circle"></span>
+               </div>
+           </div>
+
        </div>
    </header>
 
