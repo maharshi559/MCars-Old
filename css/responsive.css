@@ -1,0 +1,79 @@
+/*  less than 768px Phones and Tabs*/
+@media(max-width:768px) {
+    header #menu-toggle{
+
+        float:left;
+        padding-left:25px;
+        padding-right:20px;
+    }
+    header h2{
+        color:#ffffff;
+        font-size:1.8em;
+        font-family: "Adobe Hebrew";
+        margin:0px;
+        padding:5px;
+        float:left;
+
+    }
+
+    .sidebar-nav li {
+        text-indent: 8px;
+        line-height: 50px;
+    }
+
+    #wrapper {
+        padding-left: 0;
+    }
+
+    #wrapper.toggled {
+        padding-left: 50px;
+    }
+
+    #sidebar-wrapper {
+        width: 0;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        width: 50px;
+    }
+
+    #page-content-wrapper {
+        padding: 20px;
+        position: relative;
+    }
+
+    #wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+    }
+}
+
+
+/*  More than 768px Desktops*/
+@media(min-width:768px) {
+    #wrapper {
+        padding-left: 0;
+    }
+
+    #wrapper.toggled {
+        padding-left: 200px;
+    }
+
+    #sidebar-wrapper {
+        width: 0;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        width: 200px;
+    }
+
+    #page-content-wrapper {
+        padding: 20px;
+        position: relative;
+    }
+
+    #wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+    }
+}
