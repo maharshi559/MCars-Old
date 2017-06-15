@@ -140,6 +140,7 @@ header .right{
 .sidebar-nav li {
     text-indent: 10px;
     line-height: 50px;
+    text-decoration:none;
 }
 
 .sidebar-nav li a {
