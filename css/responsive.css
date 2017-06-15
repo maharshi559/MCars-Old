@@ -1,5 +1,102 @@
-/*  less than 768px Phones and Tabs*/
+@media(max-width: 768px) {
+
+   #login .col-md-7 h1 {
+        text-align: center;
+        font-size: 30px;
+        text-shadow: 2px 2px 8px #999999;
+        color: whitesmoke;
+        margin: 40% 20% 15% 20%;
+       line-height: 0.9em;
+    }
+
+    #login .col-md-7 h1 i{
+        font-size: 5em;
+    }
+
+    #login{
+        background: #4B79A1;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to bottom, #283E51, #4B79A1);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to bottom, #283E51, #4B79A1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+
+    .well{
+        margin: 20px;
+    }
+
+    .form-group{
+        margin-top: 0;
+        margin-bottom: 0;
+        padding: 0.2em;
+    }
+
+    .form-group input {
+        margin-top: 0.5em;
+        padding: 8px 12px;
+    }
+
+    .form-group a {
+        margin-top: 0em;
+        padding: 0;
+    }
+
+    .form-group button{
+
+        border: none;
+        color: white;
+        background-color:   rgb(0,204,153);
+        padding: 8px 12px;
+        width: 80%;
+        text-decoration: none;
+        margin: 4px 2px;
+        cursor: pointer;
+        outline:none;
+    }
+    /*-----------ADD CAR STYLING--------------*/
+    #addcar .form-group input{
+          font-size: 20px;
+          padding: 6px 10px;
+          margin-top: 1em;
+      }
+    #addcar .form-group{
+        text-align: center;
+        font-size: 20px;
+        padding: 6px 10px;
+        margin-top: 1em;
+    }
+
+    #addcar button{
+        text-align: center;
+        width:35%;
+        border-radius: 0;
+        margin-bottom: 10%;
+        margin-left: 10%;
+    }
+
+/*-----------ADD CAR STYLING END--------------*/
+/*-----------ADMIN PAGE CAR STYLING--------------*/
+    #page-content-wrapper #icons .well{
+        margin: 0.5em;
+        height: 5%;
+        width: 40%;
+        /*box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19);*/
+        display: inline-block;
+    }
+
+    #icons{
+        overflow: hidden;
+        margin-left: 2%;
+        margin-top: 5%;
+        text-align: center;
+    }
+}
+/*-----------ADMIN PAGE CAR STYLING END--------------*/
+
+/*  less than 768px - Phones and Tabs*/
 @media(max-width:768px) {
+
+
+
+    /*--------------ADMIN PAGE STYLING---------------*/
     header #menu-toggle{
 
         float:left;

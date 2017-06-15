@@ -8,7 +8,7 @@
 /*header*/
  header{
      background-color:#000000;
-     font-family: "Adobe Hebrew";
+     font-family: "Roboto";
      padding:5px;
      max-width:100%;
 
@@ -19,7 +19,7 @@
  header h2{
      color:#ffffff;
      font-size:2.0em;
-     font-family: "Adobe Hebrew";
+     font-family: "Roboto";
      margin:0px;
      padding:5px;
      float:left;
@@ -77,12 +77,44 @@ header .right{
     position: absolute;
     padding: 15px;
 }
+ /**/
+ #page-content-wrapper #icons .well{
+     margin: 0.5em;
+     height: 5%;
+     width: 15%;
+    /*box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19);;*/
+ }
+ /*-------------------------------------------*/
+ /*STYLING FOR PAGE WRAPPER WELLS*/
+
+ #page-content-wrapper #icons .well i{
+     padding: 25% 31%;
+ }
 
 #wrapper.toggled #page-content-wrapper {
     position: absolute;
     margin-right: -250px;
 }
 
+#icons{
+    text-align: center;
+    margin-left: 2.8em;
+    animation: slider 2s;
+}
+ @keyframes slider {
+
+ }
+#feed{
+    margin: 2% 0;
+}
+
+#feed ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    float: left;
+}
+ /*-------------------------------------------*/
  footer {
      position:fixed;
      bottom:0px;
