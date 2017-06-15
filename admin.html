@@ -60,6 +60,9 @@
                        <a href="#"><span class="fa fa-users"></span>Customers</a>
                    </li>
                    <li>
+                       <a href="#"><span class="fa fa-car"></span>Cars</a>
+                   </li>
+                   <li>
                        <a href="#"><span class="fa fa-calendar"></span>Reports</a>
                    </li>
                    <li>
@@ -165,9 +168,11 @@
    <script>
        $("#menu-toggle").click(function(visible) {
            $("#wrapper").toggleClass("toggled",1000);
+           $("#menu-toggle").find('span').toggleClass('fa-bars fa-minus-circle');
 
 
        });
    </script>
+
 </body>
 </html>
