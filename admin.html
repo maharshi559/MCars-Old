@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="mcarApp">
 <head>
     <title>Admin | Mcars </title>
     <meta charset="UTF-8">
@@ -13,15 +13,16 @@
     <!-- Custom CSS -->
     <link href="css/custom.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
+    <link href="css/carlist.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
 
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular-route.js"></script>
-    <script src="app.js"></script>
+    <script src="js/app.js"></script>
 
 </head>
-<body>
+<body ng-controller="mainController">
    <header>
        <div class="row">
            <div col-md-4>
@@ -41,9 +42,8 @@
        </div>
    </header>
 
-   <section >
+   <section>
        <div id="wrapper">
-
            <!-- Sidebar -->
            <div id="sidebar-wrapper">
                <ul class="sidebar-nav">
@@ -51,25 +51,25 @@
                        <a href="#"><span class="fa fa-home"></span>Dashboard</a>
                    </li>
                    <li>
-                       <a href="#"><span class="fa fa-book"></span>Booking</a>
+                       <a href="#/booking"><span class="fa fa-book"></span>Booking</a>
                    </li>
                    <li>
-                       <a href="#"><span class="fa fa-credit-card"></span>Billing</a>
+                       <a href="#/billing"><span class="fa fa-credit-card"></span>Billing</a>
                    </li>
                    <li>
-                       <a href="#"><span class="fa fa-users"></span>Customers</a>
+                       <a href="#/customer"><span class="fa fa-users"></span>Customers</a>
                    </li>
                    <li>
-                       <a href="#"><span class="fa fa-car"></span>Cars</a>
+                       <a href="#/car"><span class="fa fa-car"></span>Cars</a>
                    </li>
                    <li>
-                       <a href="#"><span class="fa fa-calendar"></span>Reports</a>
+                       <a href="#/reports"><span class="fa fa-calendar"></span>Reports</a>
                    </li><!-- comment -->
                    <li>
-                       <a href="#"><span class="fa fa-user-plus"></span>Manage</a>
+                       <a href="#/manage"><span class="fa fa-user-plus"></span>Manage</a>
                    </li>
                    <li>
-                       <a href="#"><span class="fa fa-cog"></span>Settings</a>
+                       <a href="#/settings"><span class="fa fa-cog"></span>Settings</a>
                    </li>
                    <li>
                        <a href="#"><span class="fa fa-sign-out"></span>Logout</a>
@@ -80,74 +80,7 @@
 
            <!-- Page Content -->
            <div id="page-content-wrapper">
-               <div class="container-fluid">
-                   <div class="row">
-                       <div class="col-md-12">
-                           <div class="row">
-                               <!--list of icons on the admin dashboard-->
-                               <section id="icons">
-                                   <div class="col-md-3 well" id="available">
-                                       <i class="fa fa-home fa-3x" aria-hidden="true"></i>
-                                       <span>Available</span>
-                                   </div>
-                                   <div class="col-md-3 well" id="bookings">
-                                       <i class="fa fa-calendar-check-o fa-3x" aria-hidden="true"></i>
-                                       <span>Booking</span>
-                                   </div>
-                                   <div class="col-md-3 well" id="onroad">
-                                       <i class="fa fa-road fa-3x" aria-hidden="true"></i>
-                                       <span>On Road</span>
-                                   </div>
-                                   <div class="col-md-3 well" id="billing">
-                                       <i class="fa fa-inr fa-3x" aria-hidden="true"></i>
-                                       <span>Billings</span>
-                                   </div>
-                                   <div class="col-md-3 well" id="vendors">
-                                       <i class="fa fa-users fa-3x" aria-hidden="true"></i>
-                                       <span>Vendors</span>
-                                   </div>
-                                   <div class="col-md-3 well" id="statistics">
-                                       <i class="fa fa-line-chart fa-3x" aria-hidden="true"></i>
-                                       <span>Stats</span>
-                                   </div>
-                               </section>
-                           </div>
-
-                           <!--Feed generated to display cars to delivered-->
-                           <div class="row" id="feed">
-                               <div class="col-md-6">
-                                   <div class="panel panel-default">
-                                       <div class="panel-heading">
-                                           <h5><i class="fa fa-share" aria-hidden="true"></i> Next Deliveries</h5>
-                                       </div>
-                                       <div class="panel-body">
-                                            <ul>
-                                                <li>Delivery to ######## on 23rd Jan at ###########</li>
-                                                <li>Delivery to ######## on 23rd Jan at ###########</li>
-                                                <li>Delivery to ######## on 23rd Jan at ###########</li>
-                                            </ul>
-                                       </div>
-                                   </div>
-                               </div>
-                               <div class="col-md-6">
-                                   <div class="panel panel-default">
-                                       <div class="panel-heading">
-                                           <h5><i class="fa fa-reply" aria-hidden="true"></i> Upcoming Pick-Ups</h5>
-                                       </div>
-                                       <div class="panel-body">
-                                           <ul>
-                                               <li>Delivery to ######## on 23rd Jan at ###########</li>
-                                               <li>Delivery to ######## on 23rd Jan at ###########</li>
-                                               <li>Delivery to ######## on 23rd Jan at ###########</li>
-                                           </ul>
-                                       </div>
-                                   </div>
-                               </div>
-                           </div>
-
-                       </div>
-                   </div>
-               </div>
+              <div ng-view></div>
            </div>
            <!--  ---------------->
            <!-- /#page-content-wrapper -->
@@ -169,9 +102,11 @@
        $("#menu-toggle").click(function(visible) {
            $("#wrapper").toggleClass("toggled",1000);
            $("#menu-toggle").find('span').toggleClass('fa-bars fa-minus-circle');
-
-
        });
+
+       $("#page-content-wrapper").click(function (visible) {
+           $("#wrapper").fadeOut("toggled",1000);
+       })
    </script>
 
 </body>
