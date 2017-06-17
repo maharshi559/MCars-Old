@@ -12,6 +12,7 @@
      padding:5px;
      max-width:100%;
 
+
  }
  header a{text-decoration:none;}
  header a:hover{text-decoration:none;}
@@ -38,6 +39,10 @@ header .right{
     font-size:1.6em;
     padding:5px 25px 0 0;
 
+}
+
+#mainsection{
+    padding-top:50px;
 }
 /* Toggle Styles */
 

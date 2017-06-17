@@ -29,6 +29,10 @@ mcarApp.config(function($routeProvider) {
             templateUrl : 'car.html',
             controller  : 'carController'
         })
+        .when('/addcar', {
+            templateUrl : 'addcar.html',
+            controller  : 'addcarController'
+        })
         .when('/reports', {
             templateUrl : 'reports.html',
             controller  : 'reportController'
@@ -58,6 +62,10 @@ mcarApp.controller('billingController', function($scope) {
 mcarApp.controller('carController', function($scope) {
     $scope.message = '';
 });
+mcarApp.controller('addcarController', function($scope) {
+    $scope.message = '';
+});
+
 mcarApp.controller('customerController', function($scope) {
     $scope.message = '';
 });
