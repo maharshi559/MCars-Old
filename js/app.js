@@ -6,44 +6,55 @@ mcarApp.config(function($routeProvider) {
 
     // route for the home page
         .when('/', {
-            templateUrl : 'home.html',
+            templateUrl : 'template/home.html',
             controller  : 'mainController'
         })
 
         // route for the booking page
         .when('/booking', {
-            templateUrl : 'booking.html',
+            templateUrl : 'template/booking.html',
             controller  : 'bookingController'
+        })
+        // route for the Rent page
+        .when('/rent', {
+            templateUrl : 'template/rent.html',
+            controller  : 'rentController'
         })
 
         // route for the billing page
         .when('/billing', {
-        templateUrl : 'billing.html',
+        templateUrl : 'template/billing.html',
         controller  : 'billingController'
          })
+        .when('/vendor', {
+            templateUrl : 'template/vendor.html',
+            controller  : 'vendorController'
+        })
         .when('/customer', {
-            templateUrl : 'customer.html',
+            templateUrl : 'template/customer.html',
             controller  : 'customerController'
         })
         .when('/car', {
-            templateUrl : 'car.html',
+            templateUrl : 'template/car.html',
             controller  : 'carController'
         })
         .when('/addcar', {
-            templateUrl : 'addcar.html',
+            templateUrl : 'template/addcar.html',
             controller  : 'addcarController'
         })
         .when('/reports', {
-            templateUrl : 'reports.html',
+            templateUrl : 'template/reports.html',
             controller  : 'reportController'
         })
         .when('/manage', {
-            templateUrl : 'manage.html',
+            templateUrl : 'template/manage.html',
             controller  : 'manageController'
         })
-
-
-    ;
+        .when('/confirm', {
+            templateUrl : 'template/confirm.html',
+            controller  : 'confirmController'
+        })
+     ;
 
 
 });
@@ -59,16 +70,8 @@ mcarApp.controller('bookingController', function($scope) {
 mcarApp.controller('billingController', function($scope) {
     $scope.message = '.';
 });
-mcarApp.controller('carController', function($scope) {
-    $scope.message = '';
-});
-mcarApp.controller('addcarController', function($scope) {
-    $scope.message = '';
-});
 
-mcarApp.controller('customerController', function($scope) {
-    $scope.message = '';
-});
+
 mcarApp.controller('reportsController', function($scope) {
     $scope.message = '';
 });

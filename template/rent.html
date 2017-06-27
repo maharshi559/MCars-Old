@@ -1,0 +1,148 @@
+<section ng-controller="rentController">
+
+
+    <div class="row well">
+        <div class=" col-md-12 ">
+            <h4><b>SEARCH</b></h4><hr>
+            <form>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="pickup_date">PICKUP DATE</label>
+                        <input id="pickup_date" style="width:100%"  ng-model="pickup_date" ng-readonly = "disableSearchForm"/>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="capacity">CAPACITY</label>
+                        <input type="number" class="form-control" ng-model="capacity"  id="capacity" placeholder="Capacity" ng-readonly = "disableSearchForm">
+                    </div>
+
+                </div>
+                <div class="col-md-6">
+
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label for="dropoff_date">DROPOFF DATE</label>
+                            <input id="dropoff_date" style="width:100%"  ng-model="dropoff_date" ng-readonly = "disableSearchForm"/>
+                        </div>
+
+                    <div class="form-group">
+                        <label for="cars">CAR TYPE</label>
+                        <input type="text" class="form-control" ng-model="cars" id="cars" placeholder="Cars" ng-readonly = "disableSearchForm">
+                    </div>
+                    <input type="submit"  class="btn btn-success pull-right" ng-click="displayData()" value="{{btnName}}" ng-if="btnType" >
+                </div>
+                </div>
+            </form>
+        </div>
+        <div class=" col-md-12 " id="customerInput" ng-if="formDisplay">
+
+            <h4><b>Customer Details</b></h4><hr>
+            <form>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="fname">First Name</label>
+                        <input type="text" class="form-control" id="fname"ng-model="fname" placeholder="First Name" required>
+                    </div>
+                    <div class="form-group" >
+                        <label for="lname">Last Name</label>
+                        <input type="text" class="form-control" id="lname" ng-model="lname" placeholder="Last Name" required>
+                    </div>
+                    <div class="form-group" >
+                        <label for="email">Email address</label>
+                        <input type="email" class="form-control" id="email" ng-model="email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group" >
+                        <label for="dob">Date of Birth</label>
+                        <input type="date" class="form-control" id="dob" ng-model="dob" placeholder="Date of Birth" required>
+                    </div>
+                    <div class="form-group" >
+                        <label for="phonenumber">Phonenumber</label>
+                        <input type="text" class="form-control" id="phonenumber" ng-model="phonenumber" placeholder="phonenumber" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <input type="text" class="form-control" id="address" ng-model="address" placeholder="Address" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input type="text" class="form-control" id="city" ng-model="city" placeholder="City" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pincode">Pincode</label>
+                        <input type="pincode" class="form-control" id="pincode" ng-model="pincode" placeholder="Pincode" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="license">Driving N0.</label>
+                        <input type="text" class="form-control" id="license" ng-model="driving" placeholder="Driving License" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="aadhar">Aadhar No.</label>
+                        <input type="number" class="form-control" id="aadhar" ng-model="aadhar" placeholder="Aadhar Number">
+                    </div>
+
+                    <input type="submit" class="btn btn-success " value="Confirm" ng-click="confirmBooking()">
+                    <input type="button" class="btn btn-warning " value="Cancel" ng-click="searchForm()">
+                    <button type="reset" class="btn btn-danger pull-right"><i class="fa fa-refresh"></i></button>
+
+                </div>
+
+            </form>
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+    <!--list of cars starts here-->
+    <div class="row">
+        <div class="col-md-12" ng-if=carListDisplay>
+            <div class="panel panel-default" ng-repeat="x in names | filter : search ">
+                <div class="panel-body" >
+                    <div class="col-md-4">
+                        <img src="images/sample.png" alt="car" width="60%">
+                    </div>
+                    <div class="col-md-4">
+                        <h4><strong>{{x.name}}</strong></h4>
+                        <h5>Model: {{x.model}}</h5>
+                        <h5>Price/Day: {{x.price_day}}/-</h5>
+                    </div>
+                    <div class="col-md-4">
+                        <h5>Dealer: {{x.first_name +" "+ x.last_name }} </h5>
+                        <h5>Capacity: {{x.capacity}}</h5>
+                        <h5>Extra/hr: {{x.extra_hr}}</h5>
+                        <span class="pull-right">
+
+                            <button type="sumbit" ng-click="customerForm()" class="btn btn-info">BOOK</button>
+                            </span>
+                </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+<script>
+// create DateTimePicker from input HTML element
+$("#pickup_date").kendoDateTimePicker({
+
+value: new Date(),
+dateInput: true,
+    format: "dd/MM/yyyy hh:mm tt",
+
+});
+$("#dropoff_date").kendoDateTimePicker({
+    value: new Date(),
+    dateInput: true,
+    format: "dd/MM/yyyy hh:mm tt"
+});
+
+
+</script>

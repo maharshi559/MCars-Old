@@ -1,0 +1,113 @@
+
+    <section id="searchform" ng-controller="carController" ng-init="displayData();loadVendors()">
+        <div class="col-md-12">
+            <div class="well ">
+                <form action="">
+                    <div class="form-group">
+                        <a  class="btn btn-primary" id="add" ng-click="carToggle()"><i class="fa fa-plus  "></i></a>
+
+                        <input type="text" ng-model="search" class="form-control pull-right" style="width:90%" name="search" placeholder="Search for Cars.." >
+
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="well col-md-12 panel panel-default" id="carInput"  hidden>
+                <div class="panel-heading">CAR DETAILS</div><br>
+                <form>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="sr-only">Car Vendor</label>
+                            <select  class="form-control" name="vendor" ng-model="vendor" placeholder="Vendor" required>
+                              <option value="">Select Vendor</option>
+                              <option ng-repeat="vendor in vendors " value="{{vendor.id}}">{{vendor.first_name +" "+ vendor.last_name }}</option>
+                            </select>
+                        </div>
+                        <div class="form-group" >
+                            <label class="sr-only">Car Name</label>
+                            <input type="text" class="form-control" ng-model="carName" placeholder="Car Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only">Car Picture</label>
+                            <input type="text" class="form-control" ng-model="carPic" placeholder="Car Picture" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only">Model</label>
+                            <input type="text" class="form-control" ng-model="model" placeholder="Model" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only">Car Number</label>
+                            <input type="text" class="form-control" ng-model="number" placeholder="Car Number" required>
+                        </div>
+
+                    </div>
+                    <div class="col-md-6">
+
+                        <div class="form-group">
+                            <label class="sr-only">Capacity</label>
+                            <input type="text" class="form-control" ng-model="capacity" placeholder="Capacity" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only">Price/Day</label>
+                            <input type="text" class="form-control" ng-model="price" placeholder="Price/Day" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only">Extra/hr</label>
+                            <input type="text" class="form-control" ng-model="extra" placeholder="Extra/hr" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only">Vendor Price</label>
+                            <input type="text" class="form-control" ng-model="vprice" placeholder="Vendor Price" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only">Car Type</label>
+                            <select class="form-control" ng-model="cartype"  required>
+                                <option value="" >Car Type</option>
+                                <option value="Hatchback">Hatchback</option>
+                                <option value="Sedan" selected>Sedan</option>
+                                <option value="SUV">SUV</option>
+                            </select>
+                        </div>
+
+
+                        <input type="submit" class="btn btn-success " value="{{btnName}}" ng-click="insertData()">
+                        <button type="reset" class="btn btn-danger pull-right"><i class="fa fa-refresh"></i></button>
+
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+        <!--list of cars starts here-->
+        <div class="row">
+            <div class="col-md-12">
+                    <div class="panel panel-default" ng-repeat="x in names | filter : search ">
+                        <div class="panel-body" >
+                            <div class="col-md-4">
+                                <img src="images/sample.png" alt="car" width="60%">
+                            </div>
+                            <div class="col-md-4">
+                                <h4><strong>{{x.name}}</strong></h4>
+                                <h5>Model: {{x.model}}</h5>
+                                <h5>Capacity: {{x.capacity}}</h5>
+                                <h5>Price/Day: {{x.price_day}}/-</h5>
+                            </div>
+                            <div class="col-md-4">
+                                <h5>Next Booking: 6/6/2017</h5>
+                                <h5>Car Type: {{x.cartype}}</h5>
+                                <h5>Present Status:{{x.current_status}}</h5>
+                                <span class="pull-right">
+                                <i class="fa fa-edit btn btn-default"  ng-click="updateData(x.id,x.vendor_id,x.name,x.pic,x.model,x.capacity,x.cartype,x.price_day,x.extra_hr,x.number,x.vprice)"></i>
+                                <i class="fa fa-trash btn btn-default" ng-click="deleteData(x.id)"></i>
+                            </span>
+                            </div>
+                        </div>
+                    </div>
+
+
+            </div>
+        </div>
+
+    </section>

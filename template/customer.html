@@ -1,0 +1,117 @@
+<section id="searchform" ng-controller="customerController" ng-init="displayData()">
+    <div class="col-md-12">
+        <div class="well ">
+            <form action="">
+                <div class="form-group">
+                    <a  class="btn btn-primary" id="add" ng-click="customerToggle()"><i class="fa fa-plus  "></i></a>
+
+                    <input type="text" ng-model="search" class="form-control pull-right" style="width:90%" name="search" placeholder="Search for Customer.." >
+
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="well col-md-12" id="customerInput" hidden>
+            <form>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="fname">First Name</label>
+                        <input type="text" id="fname" class="form-control" ng-model="fname" placeholder="First Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lname">Last Name</label>
+                        <input type="text"  id="lname"class="form-control" ng-model="lname" placeholder="Last Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email address</label>
+                        <input type="email" id="email" class="form-control" ng-model="email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Date of Birth</label>
+                        <input id="date"   ng-model="dob"  style="width:100%" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pnumber">Phonenumber</label>
+                        <input type="text" id="pnumber" class="form-control" ng-model="phonenumber" placeholder="phonenumber" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <input type="text" id="address" class="form-control" ng-model="address" placeholder="Address" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input type="text" id="city" class="form-control" ng-model="city" placeholder="City" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pincode">Pincode</label>
+                        <input type="pincode" id="pincode" class="form-control" ng-model="pincode" placeholder="Pincode" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="dno">Driving N0.</label>
+                        <input type="text" id="dno" class="form-control" ng-model="driving" placeholder="Driving License" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="aadhar">Aadhar No.</label>
+                        <input type="number" id="aadhar" class="form-control" ng-model="aadhar" placeholder="Aadhar Number">
+                    </div>
+
+                    <input type="submit" class="btn btn-success " value="{{btnName}}" ng-click="insertData()">
+                    <button type="reset" class="btn btn-danger pull-right"><i class="fa fa-refresh"></i></button>
+
+                </div>
+
+
+
+
+            </form>
+        </div>
+    </div>
+    <div class="col-md-12 ">
+        <table class="table table-bordered">
+            <tr class="warning">
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Address</th>
+                <!--<th>City</th>-->
+                <!--<th>Pincode</th>-->
+                <th>Email</th>
+                <th>Phone</th>
+                <th>D.O.B</th>
+                <th>Driving No.</th>
+                <th><i class="fa fa-edit btn btn-warning" ></i>
+                    <i class="fa fa-trash btn btn-danger" ></i>
+                </th>
+            </tr>
+            <tr ng-repeat="x in names | filter : search " >
+                <td>{{x.first_name}}</td>
+                <td>{{x.last_name}}</td>
+                <td>{{x.address}}<br>{{x.city}}<br>{{x.pincode}}</td>
+                <!--<td>{{x.city}}</td>-->
+                <!--<td>{{x.pincode}}</td>-->
+                <td>{{x.email}}</td>
+                <td>{{x.phone_number}}</td>
+                <td>{{x.dob | date : "dd MMM yyyy"}}</td>
+                <td>{{x.driving_no}}</td>
+                <td><i class="fa fa-edit btn btn-default"  ng-click="updateData(x.customer_id,x.first_name,x.last_name,x.address,x.city,x.pincode,x.email,x.phone_number,x.dob,x.driving_no)"></i>
+                    <i class="fa fa-trash btn btn-default" ng-click="deleteData(x.customer_id)"></i>
+                </td>
+            </tr>
+
+        </table>
+
+    </div>
+</section>
+<script>
+    $("#date").kendoDatePicker({
+    //  value: new Date(),
+        dateInput: true,
+//      format: "dd/MM/yyyy",
+       format: "yyyy-MM-dd",
+        start: "decade",
+        max: new Date(1998, 0, 1) // sets max date to Jan 1st, 1998
+    });
+
+</script>

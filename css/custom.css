@@ -80,7 +80,8 @@ header .right{
 #page-content-wrapper {
     width: 100%;
     position: absolute;
-    padding: 15px;
+
+
 }
  /**/
  #page-content-wrapper #icons .well{
@@ -106,9 +107,7 @@ header .right{
     margin-left: 2.8em;
     animation: slider 2s;
 }
- @keyframes slider {
 
- }
 #feed{
     margin: 2% 0;
 }
@@ -129,6 +128,8 @@ header .right{
      background:#000;
      color:#999999;
      margin-left:0px;
+
+
  }
 /* Sidebar Styles */
 

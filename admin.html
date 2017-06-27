@@ -13,13 +13,31 @@
     <!-- Custom CSS -->
     <link href="css/custom.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
-    <link href="css/carlist.css" rel="stylesheet">
+
+    <!-- Date Picker -->
+
+
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.2.621/styles/kendo.common-material.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.2.621/styles/kendo.material.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.2.621/styles/kendo.material.mobile.min.css" />
+
+    <script src="https://kendo.cdn.telerik.com/2017.2.621/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2017.2.621/js/kendo.all.min.js"></script>
+
+    <!--<link href="css/carlist.css" rel="stylesheet">-->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
 
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.11/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.11/angular-route.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/customerController.js"></script>
+    <script src="js/carController.js"></script>
+    <script src="js/vendorController.js"></script>
+    <script src="js/rentController.js"></script>
+    <script src="js/confirmController.js"></script>
+
+
 
 </head>
 <body ng-controller="mainController">
@@ -28,10 +46,10 @@
         <header>
             <div class="row">
                 <div col-md-4>
-                    <a href="#" id="menu-toggle"><span class="fa fa-bars" ></span></a>
+                    <a  id="menu-toggle"><span class="fa fa-bars" ></span></a>
                 </div>
                 <div col-md-4>
-                    <h2><span class="fa fa-car "></span>    M Cars Manager</h2>
+                    <h2><span class="fa fa-car "></span> M Cars Manager</h2>
                 </div>
                 <div col-md-4>
                     <div class="right">
@@ -53,7 +71,10 @@
            <div id="sidebar-wrapper">
                <ul class="sidebar-nav">
                    <li class="sidebar-brand">
-                       <a href="#"><span class="fa fa-home"></span>Dashboard</a>
+                       <a href="#/"><span class="fa fa-home"></span>Dashboard</a>
+                   </li>
+                   <li>
+                       <a href="#/rent"><span class="fa fa-search"></span>Rent</a>
                    </li>
                    <li>
                        <a href="#/booking"><span class="fa fa-book"></span>Booking</a>
@@ -62,10 +83,13 @@
                        <a href="#/billing"><span class="fa fa-credit-card"></span>Billing</a>
                    </li>
                    <li>
-                       <a href="#/customer"><span class="fa fa-users"></span>Customers</a>
+                       <a href="#/vendor"><span class="fa fa-users"></span>Vendor</a>
                    </li>
                    <li>
                        <a href="#/car"><span class="fa fa-car"></span>Cars</a>
+                   </li>
+                   <li>
+                       <a href="#/customer"><span class="fa fa-users"></span>Customers</a>
                    </li>
                    <li>
                        <a href="#/reports"><span class="fa fa-calendar"></span>Reports</a>
@@ -85,7 +109,7 @@
 
            <!-- Page Content -->
            <div id="page-content-wrapper">
-              <div ng-view></div>
+               <div ng-view ></div>
            </div>
            <!--  ---------------->
            <!-- /#page-content-wrapper -->
@@ -97,22 +121,22 @@
 
    </section>
 
-   <!-- jQuery -->
-   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
-   <!-- Bootstrap Core JavaScript -->
-   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+   <!--&lt;!&ndash; Bootstrap Core JavaScript &ndash;&gt;-->
+   <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
 
    <script>
        $("#menu-toggle").click(function(visible) {
            $("#wrapper").toggleClass("toggled",1000);
-           $("#menu-toggle").find('span').toggleClass('fa-bars fa-minus-circle');
+//           $("#menu-toggle").find('span').toggleClass('fa-bars fa-minus-circle');
        });
 
-       $("#page-content-wrapper").click(function (visible) {
-           $("#wrapper").fadeOut("toggled",1000);
-       })
+
+
    </script>
+
+
 
 </body>
 </html>

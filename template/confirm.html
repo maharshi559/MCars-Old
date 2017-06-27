@@ -1,0 +1,32 @@
+<div class="col-md-12 well panel panel-default">
+    <div class="panel-heading">SEARCH</div><br>
+    <form>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="pickup">PICKUP DATE</label>
+                <div class=" input-group">
+                    <input type="date" class="form-control" ng-model="pickup_date" id="pickup"  placeholder="Pickup" >
+                    <span class="input-group-btn">
+                    <input type="time" class="form-control" ng-model="pickup_time" aria-describedby="pickup" placeholder="Pickup">
+                    </span>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="dropoff">DROPOFF DATE</label>
+                <div class=" input-group">
+                    <input type="date" class="form-control" ng-model="dropoff_date" id="dropoff" placeholder="Dropoff" >
+                    <span class="input-group-btn">
+                    <input type="time" class="form-control" ng-model="dropoff_time" aria-describedby="dropoff" placeholder="Dropoff">
+                    </span>
+                </div>
+            </div>
+
+            <input type="submit" class="btn btn-success pull-right" ng-click="displayData()" value="Confirm ">
+        </div>
+
+    </form>
+</div>
