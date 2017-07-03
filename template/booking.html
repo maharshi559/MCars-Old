@@ -1,0 +1,49 @@
+<section id="searchform" ng-controller="bookingController" ng-init="loadBookings()">
+    <div class="col-md-12">
+        <div class="well ">
+            <form action="">
+                <div class="form-group">
+                    <a  class="btn btn-primary" id="add" ng-click="customerToggle()"><i class="fa fa-plus  "></i></a>
+
+                    <input type="text" ng-model="search" class="form-control pull-right" style="width:90%" name="search" placeholder="Search for Bookings.." >
+
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="col-md-12 ">
+        <table class="table table-bordered">
+            <tr class="warning">
+                <th>Booking ID</th>
+                <th>Car Name</th>
+                <th>Car Number</th>
+                <th>Pickup Date</th>
+                <th>Dropoff Date</th>
+                <th>Customer Name</th>
+                <th>Status</th>
+                <th><i class="fa fa-edit btn btn-warning" ></i>
+                    <i class="fa fa-trash btn btn-danger" ></i>
+                </th>
+            </tr>
+            <tr ng-repeat="x in bookings | filter : search " >
+                <td>{{x.booking_id}}</td>
+                <td>{{x.name}}</td>
+                <td>{{x.number}}</td>
+                <td>{{x.pickup_date}}</td>
+                <td>{{x.dropoff_date}}</td>
+                <td>{{x.first_name+" "+x.last_name}}</td>
+                <td>
+                    <select class="form-control" ng-change="unitChanged()" ng-model="data.unit">
+                        <option ng-selected="data.unit == item.id" ng-repeat="item in units" ng-value="item.id">{{item.label}}</option>
+                    </select>
+                </td>
+                <td><i class="fa fa-edit btn btn-default"  ng-click="updateData(x.customer_id,x.first_name,x.last_name,x.address,x.city,x.pincode,x.email,x.phone_number,x.dob,x.driving_no)"></i>
+                    <i class="fa fa-trash btn btn-default" ng-click="deleteData(x.customer_id)"></i>
+                </td>
+            </tr>
+
+        </table>
+
+    </div>
+</section>
