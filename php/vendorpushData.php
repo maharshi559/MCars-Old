@@ -24,8 +24,8 @@
     }
 
      if($btn_name == "Update"){
-           $id =$data->id;
-           $query="UPDATE vendors SET first_name='$first_name',last_name='$last_name',address='$address',city='$city',pincode='$pincode',email='$email',phone_number='$phonenumber',company_name='$company_name' WHERE id='$id'";
+           $id =$data->vendor_id;
+           $query="UPDATE vendors SET first_name='$first_name',last_name='$last_name',address='$address',city='$city',pincode='$pincode',email='$email',phone_number='$phonenumber',company_name='$company_name' WHERE vendor_id='$id'";
 
                if(mysqli_query($connect,$query)){
                  echo "Data Updated";

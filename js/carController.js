@@ -12,8 +12,9 @@ mcarApp.controller('carController',['$scope','$http','$log',function($scope,$htt
     $scope.insertData =function(){
         if($scope.vendor!= null && $scope.carName!=null&& $scope.carPic!=null  && $scope.model!=null && $scope.number!=null && $scope.capacity!=null && $scope.price!=null && $scope.extra!=null && $scope.vprice!=null && $scope.cartype!=null ){
             $scope.current_status="available";
+
             $http.post('./php/carpushData.php',{'vendor':$scope.vendor,'carname':$scope.carName,'carpic':$scope.carPic,'model':$scope.model,'capacity':$scope.capacity,'price':$scope.price,'extra':$scope.extra,'number':$scope.number,
-                'vprice':$scope.vprice,'btnName':$scope.btnName,'cartype':$scope.cartype,'current_status':$scope.current_status,'id':$scope.id})
+                'vprice':$scope.vprice,'btnName':$scope.btnName,'cartype':$scope.cartype,'current_status':$scope.current_status,'car_id':$scope.car_id})
                 .success(function(data){
                     alert(data);
                     $scope.vendor=null;
@@ -49,12 +50,12 @@ mcarApp.controller('carController',['$scope','$http','$log',function($scope,$htt
 
     }
     // update data
-    $scope.updateData =function(id,vendor,carName,carPic,model,capacity,cartype,price,extra,number,vprice){
+    $scope.updateData =function(car_id,vendor,carName,carPic,model,capacity,cartype,price,extra,number,vprice){
         //toggle to come down
         $('#carInput').slideToggle();
         $("#add").find('i').toggleClass('fa-plus fa-times');
 
-        $scope.id = id;
+        $scope.car_id = car_id;
         $scope.vendor=vendor;
         $scope.carName=carName;
         $scope.carPic=carPic;
@@ -73,7 +74,7 @@ mcarApp.controller('carController',['$scope','$http','$log',function($scope,$htt
     $scope.deleteData =function(id){
         if(confirm('Are you sure you want to delete ?'))
         {
-            $http.post('./php/cartrashData.php',{'id':id})
+            $http.post('./php/cartrashData.php',{'car_id':car_id})
                 .success(function(data){
                     alert(data);
                     $scope.displayData();

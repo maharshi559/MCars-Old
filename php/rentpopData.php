@@ -17,7 +17,7 @@
                 $query = "SELECT *
                           FROM cars
                           INNER JOIN vendors
-                          ON cars.vendor_id=vendors.id WHERE current_status='available'";
+                          ON cars.vendor_id=vendors.vendor_id WHERE current_status='available'";
 
                 $result = mysqli_query($connect,$query);
 

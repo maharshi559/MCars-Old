@@ -188,4 +188,12 @@ header .right{
     color: #fff;
     background: none;
 }
-
+ /*preview rent page table split*/
+ #splitable
+ {
+     column-count:2;
+     -moz-column-count:2;
+     -webkit-column-count:2;
+     width:49%;
+     height:100px;
+ }

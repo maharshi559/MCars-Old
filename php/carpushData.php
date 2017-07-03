@@ -27,8 +27,8 @@
     }
 
      if($btn_name == "Update"){
-           $id =$data->id;
-           $query="UPDATE cars SET vendor_id='$vendor',name='$carname',pic='$carpic',model='$model',capacity='$capacity',cartype='$cartype',price_day='$price',extra_hr='$extra',number='$number',vprice='$vprice' WHERE id='$id'";
+           $id =$data->car_id;
+           $query="UPDATE cars SET vendor_id='$vendor',name='$carname',pic='$carpic',model='$model',capacity='$capacity',cartype='$cartype',price_day='$price',extra_hr='$extra',number='$number',vprice='$vprice' WHERE car_id='$id'";
 
                if(mysqli_query($connect,$query)){
                  echo "Data Updated";

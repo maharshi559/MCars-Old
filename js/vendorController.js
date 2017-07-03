@@ -13,7 +13,7 @@ mcarApp.controller('vendorController',['$scope','$http','$log',function($scope,$
         if($scope.fname!= null && $scope.lname!=null && $scope.address!=null && $scope.city!=null && $scope.pincode!=null && $scope.email!=null && $scope.phonenumber!=null && $scope.company_name!=null ){
 
             $http.post('./php/vendorpushData.php',{'firstname':$scope.fname,'lastname':$scope.lname,'address':$scope.address,'city':$scope.city,'pincode':$scope.pincode,'email':$scope.email,
-                'phonenumber':$scope.phonenumber,'company_name':$scope.company_name,'btnName':$scope.btnName,'id':$scope.id})
+                'phonenumber':$scope.phonenumber,'company_name':$scope.company_name,'btnName':$scope.btnName,'vendor_id':$scope.vendor_id})
                 .success(function(data){
                     alert(data);
                     $scope.fname=null;
@@ -45,12 +45,12 @@ mcarApp.controller('vendorController',['$scope','$http','$log',function($scope,$
 
     }
     // update data
-    $scope.updateData =function(id,first_name,last_name,address,city,pincode,email,phone_number,company_name){
+    $scope.updateData =function(vendor_id,first_name,last_name,address,city,pincode,email,phone_number,company_name){
         //toggle to come down
         $('#vendorInput').slideToggle();
         $("#add").find('i').toggleClass('fa-plus fa-times');
 
-        $scope.id = id;
+        $scope.vendor_id = vendor_id;
         $scope.fname = first_name;
         $scope.lname = last_name;
         $scope.address = address;
@@ -67,7 +67,7 @@ mcarApp.controller('vendorController',['$scope','$http','$log',function($scope,$
     $scope.deleteData =function(id){
         if(confirm('Are you sure you want to delete ?'))
         {
-            $http.post('./php/vendortrashData.php',{'id':id})
+            $http.post('./php/vendortrashData.php',{'vendor_id':vendor_id})
                 .success(function(data){
                     alert(data);
                     $scope.displayData();

@@ -55,7 +55,6 @@ mcarApp.controller('customerController', ['$scope','$http','$log',function($scop
          //toggle to come down
             $('#customerInput').slideToggle();
             $("#add").find('i').toggleClass('fa-plus fa-times');
-              console.log($scope.dob);
             $scope.customer_id = customer_id;
             $scope.fname = first_name;
             $scope.lname = last_name;
