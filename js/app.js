@@ -63,7 +63,9 @@ mcarApp.controller('mainController',function($scope){
 
 });
 
-
+mcarApp.controller('bookingController', function($scope) {
+    $scope.message = '';
+});
 
 mcarApp.controller('billingController', function($scope) {
     $scope.message = '.';

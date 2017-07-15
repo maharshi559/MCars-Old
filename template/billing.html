@@ -1,0 +1,58 @@
+<section id="searchform" ng-controller="billingController" ng-init="loadBillings()">
+
+            <div class="col-md-12">
+                <div class="well ">
+                    <form action="">
+                        <div class="form-group">
+                            <a  class="btn btn-primary" id="add" ng-click="customerToggle()"><i class="fa fa-plus  "></i></a>
+
+                            <input type="text" ng-model="search" class="form-control pull-right" style="width:90%" name="search" placeholder="Search for Bookings.." >
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-md-12 ">
+                <table class="table table-bordered">
+                    <tr class="warning">
+                        <th>Booking ID</th>
+                        <th>Car Number</th>
+                        <th>Pickup Date</th>
+                        <th>Dropoff Date</th>
+                        <th>Return Date</th>
+                        <th>Price/Day</th>
+                        <th>Extra/hour</th>
+                        <th>No. of days</th>
+                        <th>Total Cost</th>
+                        <th>Status</th>
+                        <th>pick_drop hrs</th>
+                        <th>retutn_drop Hrs</th>
+                    </tr>
+                    <tr ng-repeat="x in billings | filter : search " >
+                        <td>{{x.booking_id}}</td>
+                        <td>{{x.number}}</td>
+                        <td>{{x.pickup_date}}</td>
+                        <td>{{x.dropoff_date}}</td>
+                        <td>{{x.return_date}}</td>
+                        <td>{{x.price_day}}</td>
+                        <td>{{x.extra_hr}}</td>
+                        <th>{{x.diff }}</th>
+                        <th>{{x.diff * x.price_day}}</th>
+                        <td>{{x.billing_status}}</td>
+                        <td>{{x.pick_drop}}</td>
+                        <td>{{x.return_drop}}</td>
+                        <!--<td>{{x.total_amount}}</td>-->
+
+                    </tr>
+
+                </table>
+
+            </div>
+
+
+        </div>
+
+
+
+</section>

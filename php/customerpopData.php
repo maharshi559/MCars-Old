@@ -1,7 +1,5 @@
 <?php
-
-    $connect = mysqli_connect('localhost','root','','mcars');
-
+require 'config.php';
     $output = array();
 
     $query = "SELECT * FROM customers";

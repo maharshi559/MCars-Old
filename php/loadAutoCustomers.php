@@ -1,6 +1,6 @@
 <?php
 
-    $connect = mysqli_connect('localhost','root','','mcars');
+require 'config.php';
     $output = array();
     $data =json_decode(file_get_contents("php://input"));
 

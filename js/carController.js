@@ -11,10 +11,10 @@ mcarApp.controller('carController',['$scope','$http','$log',function($scope,$htt
     // Insert data
     $scope.insertData =function(){
         if($scope.vendor!= null && $scope.carName!=null&& $scope.carPic!=null  && $scope.model!=null && $scope.number!=null && $scope.capacity!=null && $scope.price!=null && $scope.extra!=null && $scope.vprice!=null && $scope.cartype!=null ){
-            $scope.current_status="available";
+            $scope.current_status="Available";
 
             $http.post('./php/carpushData.php',{'vendor':$scope.vendor,'carname':$scope.carName,'carpic':$scope.carPic,'model':$scope.model,'capacity':$scope.capacity,'price':$scope.price,'extra':$scope.extra,'number':$scope.number,
-                'vprice':$scope.vprice,'btnName':$scope.btnName,'cartype':$scope.cartype,'current_status':$scope.current_status,'car_id':$scope.car_id})
+                'vprice':$scope.vprice,'btnName':$scope.btnName,'cartype':$scope.cartype,'current_status':$scope.currentstatus,'car_id':$scope.car_id})
                 .success(function(data){
                     alert(data);
                     $scope.vendor=null;
@@ -50,10 +50,10 @@ mcarApp.controller('carController',['$scope','$http','$log',function($scope,$htt
 
     }
     // update data
-    $scope.updateData =function(car_id,vendor,carName,carPic,model,capacity,cartype,price,extra,number,vprice){
+    $scope.updateData =function(car_id,vendor,carName,carPic,model,capacity,cartype,price,extra,number,vprice,current_status){
         //toggle to come down
-        $('#carInput').slideToggle();
-        $("#add").find('i').toggleClass('fa-plus fa-times');
+        /*$('#carInput').slideToggle();
+        $("#add").find('i').toggleClass('fa-plus fa-times');*/
 
         $scope.car_id = car_id;
         $scope.vendor=vendor;
@@ -66,6 +66,7 @@ mcarApp.controller('carController',['$scope','$http','$log',function($scope,$htt
         $scope.price=price;
         $scope.extra=extra;
         $scope.vprice=vprice;
+        $scope.currentstatus=current_status;
         $scope.btnName = "Update";
     }
 

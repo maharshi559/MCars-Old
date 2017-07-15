@@ -1,5 +1,5 @@
 <?php
-  $connect = mysqli_connect('localhost','root','','mcars');
+   require 'config.php';
   $data =json_decode(file_get_contents("php://input"));
   if(count($data) >0){
     $vendor = mysqli_real_escape_string($connect,$data->vendor);
@@ -12,7 +12,7 @@
     $extra = mysqli_real_escape_string($connect,$data->extra);
     $number = mysqli_real_escape_string($connect,$data->number);
     $vprice = mysqli_real_escape_string($connect,$data->vprice);
-    $current_status =$data->current_status;
+    $current_status =mysqli_real_escape_string($connect,$data->current_status);
     $btn_name =$data->btnName;
     if($btn_name == "ADD"){
        $query="INSERT INTO cars(vendor_id,name,pic,model,capacity,cartype,price_day,extra_hr,number,vprice,current_status) VALUES ('$vendor',' $carname','$carpic','$model','$capacity','$cartype','$price','$extra','$number','$vprice','$current_status')";
@@ -28,7 +28,7 @@
 
      if($btn_name == "Update"){
            $id =$data->car_id;
-           $query="UPDATE cars SET vendor_id='$vendor',name='$carname',pic='$carpic',model='$model',capacity='$capacity',cartype='$cartype',price_day='$price',extra_hr='$extra',number='$number',vprice='$vprice' WHERE car_id='$id'";
+           $query="UPDATE cars SET vendor_id='$vendor',name='$carname',pic='$carpic',model='$model',capacity='$capacity',cartype='$cartype',price_day='$price',extra_hr='$extra',number='$number',vprice='$vprice',current_status='$current_status' WHERE car_id='$id'";
 
                if(mysqli_query($connect,$query)){
                  echo "Data Updated";

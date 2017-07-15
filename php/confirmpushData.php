@@ -1,5 +1,5 @@
 <?php
-  $connect = mysqli_connect('localhost','root','','mcars');
+require 'config.php';
   $data =json_decode(file_get_contents("php://input"));
   if(count($data) >0){
 
@@ -18,6 +18,7 @@
     $phonenumber = mysqli_real_escape_string($connect,$data->phonenumber);
     $dob = mysqli_real_escape_string($connect,$data->dob);
     $driving = mysqli_real_escape_string($connect,$data->driving);
+      $status = mysqli_real_escape_string($connect,$data->status);
 
 
       $q="SELECT * FROM customers WHERE customer_id='$customer_id'" ;
@@ -32,7 +33,7 @@
           }
       }
 
-      $query="INSERT INTO booking(car_id,customer_id,vendor_id,pickup_date,dropoff_date) VALUES ('$car_id ','$customer_id','$vendor_id','$pickup_date','$dropoff_date')";
+      $query="INSERT INTO booking(car_id,customer_id,vendor_id,pickup_date,dropoff_date,status) VALUES ('$car_id ','$customer_id','$vendor_id','$pickup_date','$dropoff_date','$status')";
 
            if(mysqli_query($connect,$query)){
              echo "Data Inserted";

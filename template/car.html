@@ -18,26 +18,26 @@
                 <form>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label class="sr-only">Car Vendor</label>
-                            <select  class="form-control"  ng-model="vendor" placeholder="Vendor" required>
-                              <option value="">Select Vendor</option>
-                              <option ng-repeat="vendor in vendors " value="{{vendor.vendor_id}}">{{vendor.first_name +" "+ vendor.last_name }}</option>
+                            <label for="Vendor">Car Vendor</label>
+                            <select  class="form-control"   ng-model="vendor" placeholder="Vendor" required>
+                                <option value="">Select Vendor</option>
+                                <option ng-repeat="vendor in vendors " value="{{vendor.vendor_id}}">{{vendor.first_name +" "+ vendor.last_name }}</option>
                             </select>
                         </div>
                         <div class="form-group" >
-                            <label class="sr-only">Car Name</label>
-                            <input type="text" class="form-control" ng-model="carName" placeholder="Car Name" required>
+                            <label for="carname">Car Name</label>
+                            <input type="text"  class="form-control" ng-model="carName" placeholder="Car Name" required>
                         </div>
                         <div class="form-group">
-                            <label class="sr-only">Car Picture</label>
-                            <input type="text" class="form-control" ng-model="carPic" placeholder="Car Picture" required>
+                            <label for="carpicture">Car Picture</label>
+                            <input type="text"  class="form-control" ng-model="carPic" placeholder="Car Picture" required>
                         </div>
                         <div class="form-group">
-                            <label class="sr-only">Model</label>
+                            <label for="model">Model</label>
                             <input type="text" class="form-control" ng-model="model" placeholder="Model" required>
                         </div>
                         <div class="form-group">
-                            <label class="sr-only">Car Number</label>
+                            <label for="carnumber">Car Number</label>
                             <input type="text" class="form-control" ng-model="number" placeholder="Car Number" required>
                         </div>
 
@@ -45,24 +45,24 @@
                     <div class="col-md-6">
 
                         <div class="form-group">
-                            <label class="sr-only">Capacity</label>
-                            <input type="text" class="form-control" ng-model="capacity" placeholder="Capacity" required>
+                            <label for="capacity">Capacity</label>
+                            <input type="text"  class="form-control" ng-model="capacity" placeholder="Capacity" required>
                         </div>
                         <div class="form-group">
-                            <label class="sr-only">Price/Day</label>
-                            <input type="text" class="form-control" ng-model="price" placeholder="Price/Day" required>
+                            <label for="price">Price/Day</label>
+                            <input type="text"  class="form-control" ng-model="price" placeholder="Price/Day" required>
                         </div>
                         <div class="form-group">
-                            <label class="sr-only">Extra/hr</label>
-                            <input type="text" class="form-control" ng-model="extra" placeholder="Extra/hr" required>
+                            <label for="extra">Extra/hr</label>
+                            <input type="text"  class="form-control" ng-model="extra" placeholder="Extra/hr" required>
                         </div>
                         <div class="form-group">
-                            <label class="sr-only">Vendor Price</label>
-                            <input type="text" class="form-control" ng-model="vprice" placeholder="Vendor Price" required>
+                            <label for="vprice">Vendor Price</label>
+                            <input type="text"  class="form-control" ng-model="vprice" placeholder="Vendor Price" required>
                         </div>
                         <div class="form-group">
-                            <label class="sr-only">Car Type</label>
-                            <select class="form-control" ng-model="cartype"  required>
+                            <label for="cartype">Car Type</label>
+                            <select class="form-control"  ng-model="cartype"  required>
                                 <option value="" selected>Car Type</option>
                                 <option value="Hatchback">Hatchback</option>
                                 <option value="Sedan" >Sedan</option>
@@ -70,15 +70,13 @@
                             </select>
                         </div>
 
-
-                        <input type="submit" class="btn btn-success " value="{{btnName}}" ng-click="insertData()">
-                        <button type="reset" class="btn btn-danger pull-right"><i class="fa fa-refresh"></i></button>
-
                     </div>
-
+                        <input type="submit" class="btn btn-success " value="ADD" ng-click="insertData()" >
+                        <button type="reset" class="btn btn-danger pull-right"><i class="fa fa-refresh"></i></button>
                 </form>
             </div>
         </div>
+
 
         <!--list of cars starts here-->
 
@@ -99,11 +97,107 @@
                                 <h5>Car Type: {{x.cartype}}</h5>
                                 <h5>Present Status:{{x.current_status}}</h5>
                                 <span class="pull-right">
-                                <i class="fa fa-edit btn btn-default"  ng-click="updateData(x.car_id,x.vendor_id,x.name,x.pic,x.model,x.capacity,x.cartype,x.price_day,x.extra_hr,x.number,x.vprice)"></i>
+                                <i class="fa fa-edit btn btn-default"  ng-click="updateData(x.car_id,x.vendor_id,x.name,x.pic,x.model,x.capacity,x.cartype,x.price_day,x.extra_hr,x.number,x.vprice,x.current_status)" data-toggle="modal" data-target="#myModal"></i>
                                 <i class="fa fa-trash btn btn-default" ng-click="deleteData(x.car_id)"></i>
                             </span>
                             </div>
                         </div>
                     </div>
+
             </div>
+
+
+        <!-- EDITING CAR DETAILS MOEL--->
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog modal-lg">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Car Details</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="vendor">Car Vendor</label>
+                                    <select  class="form-control"  id="vendor" ng-model="vendor" placeholder="Vendor" required>
+                                        <option value="">Select Vendor</option>
+                                        <option ng-repeat="vendor in vendors " value="{{vendor.vendor_id}}">{{vendor.first_name +" "+ vendor.last_name }}</option>
+                                    </select>
+                                </div>
+                                <div class="form-group" >
+                                    <label for="carname">Car Name</label>
+                                    <input type="text" id="carname" class="form-control" ng-model="carName" placeholder="Car Name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="carpicture">Car Picture</label>
+                                    <input type="text" id="carpicture" class="form-control" ng-model="carPic" placeholder="Car Picture" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="model">Model</label>
+                                    <input type="text" id="model"" class="form-control" ng-model="model" placeholder="Model" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="carnumber">Car Number</label>
+                                    <input type="text" id="carnumber" class="form-control" ng-model="number" placeholder="Car Number" required>
+                                </div>
+
+                            </div>
+                            <div class="col-md-6">
+
+                                <div class="form-group">
+                                    <label for="capacity">Capacity</label>
+                                    <input type="text" id="capacity" class="form-control" ng-model="capacity" placeholder="Capacity" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="price">Price/Day</label>
+                                    <input type="text" id="price" class="form-control" ng-model="price" placeholder="Price/Day" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="extra">Extra/hr</label>
+                                    <input type="text" id="extra" class="form-control" ng-model="extra" placeholder="Extra/hr" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="vprice">Vendor Price</label>
+                                    <input type="text" id="vprice" class="form-control" ng-model="vprice" placeholder="Vendor Price" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cartype">Car Type</label>
+                                    <select class="form-control" id="cartype" ng-model="cartype"  required>
+                                        <option value="" selected>Car Type</option>
+                                        <option value="Hatchback">Hatchback</option>
+                                        <option value="Sedan" >Sedan</option>
+                                        <option value="SUV">SUV</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="status">Present status</label>
+                                    <select class="form-control" id="status" ng-model="currentstatus"  required>
+                                        <option value="Available">Available</option>
+                                        <option value="Service">Service</option>
+                                        <option value="NotAvailable">Not Available</option>
+                                    </select>
+                                </div>
+
+
+
+
+                            </div>
+
+                        </form>
+
+                    </div>
+                    <div class="modal-footer">
+                        <input type="submit" class="btn btn-success " data-dismiss="modal" value="{{btnName}}" ng-click="insertData()">
+                        <button type="reset" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
     </section>

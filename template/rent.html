@@ -1,6 +1,6 @@
 <section ng-controller="rentController" ng-init="loadCustomers()">
 
-    <div class="row well" ng-hide="search">
+    <div class="row " ng-hide="search" style="background-image: url('https://images.template.net/wp-content/uploads/2015/11/25190740/Ash-Color-Plain-Wallpaper-Download.jpg')">
         <div class=" col-md-12 ">
             <h4><b>SEARCH</b></h4><hr>
             <form>
@@ -11,7 +11,13 @@
                     </div>
                     <div class="form-group">
                         <label for="capacity">CAPACITY</label>
-                        <input type="number" class="form-control" ng-model="capacity"  id="capacity" placeholder="Capacity" ng-readonly = "disableSearchForm">
+                        <select class="form-control" ng-model="capacity"  id="capacity" placeholder="Capacity" ng-readonly = "disableSearchForm">
+                            <option value="">Capacity</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                        </select>
                     </div>
 
                 </div>
@@ -25,9 +31,15 @@
 
                     <div class="form-group">
                         <label for="cars">CAR TYPE</label>
-                        <input type="text" class="form-control" ng-model="cars" id="cars" placeholder="Cars" ng-readonly = "disableSearchForm">
+                        <select  class="form-control" ng-model="cartype" id="cars" placeholder="Cars" ng-readonly = "disableSearchForm">
+                            <option value="">Car Type</option>
+                            <option value="Hatchback">Hatchback</option>
+                            <option value="Sedan" >Sedan</option>
+                            <option value="SUV">SUV</option>
+                        </select>
                     </div>
                     <input type="submit"  class="btn btn-success pull-right" ng-click="displayData()" value="{{btnName}}" ng-show="btnType" >
+
                 </div>
                 </div>
             </form>
@@ -196,13 +208,15 @@
                     <div class="col-md-4">
                         <h4><strong>{{x.name}}</strong></h4>
                         <h5>Model: {{x.model}}</h5>
-                        <h5>Price/Day: {{x.price_day}}/-</h5>
+                        <h5>Price/Day: {{x.price_day}}</h5>
+                        <h5>Extra/hr: {{x.extra_hr}}</h5>
 
                     </div>
                     <div class="col-md-4">
                         <h5>Dealer: {{x.first_name +" "+ x.last_name }} </h5>
                         <h5>Capacity: {{x.capacity}}</h5>
-                        <h5>Extra/hr: {{x.extra_hr}}</h5>
+                        <h5>Car Type: {{x.cartype}}</h5>
+                        <h5>Car Number: {{x.number}}</h5>
                         <span class="pull-right">
 
                             <button type="sumbit" ng-click="customerForm(x.car_id,x.vendor_id,x.name,x.cartype)" class="btn btn-info">BOOK</button>
@@ -219,17 +233,23 @@
 
 <script>
 // create DateTimePicker from input HTML element
+
 $("#pickup_date").kendoDateTimePicker({
 
-value: new Date(),
-dateInput: true,
-    format: "yyyy-MM-dd hh:mm:tt",
-
-});
-$("#dropoff_date").kendoDateTimePicker({
-    value: new Date(),
+    //value: new Date(),
     dateInput: true,
     format: "yyyy-MM-dd hh:mm:tt",
+    min: new Date(),
+    culture: "en-US",
+    interval: 15
+});
+$("#dropoff_date").kendoDateTimePicker({
+    // value: new Date(),
+    dateInput: true,
+    format: "yyyy-MM-dd hh:mm:tt",
+    min: new Date(),
+    culture: "en-US",
+    interval: 15
 
 });
 

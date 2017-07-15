@@ -4,9 +4,9 @@
 mcarApp.controller('rentController', ['$scope','$filter','$http','$log',function($scope,$filter,$http,$log) {
     $scope.btnName="SEARCH";
     $scope.btnType=true;
-    $scope.capacity=1;
     $scope.formDisplay=false;
    // $scope.carListDisplay=true;
+
     $scope.disableSearchForm = false;
     $scope.customer=-1;
     $scope.detailed=false;
@@ -23,8 +23,6 @@ mcarApp.controller('rentController', ['$scope','$filter','$http','$log',function
                 $scope.carListDisplay=true;
                 $scope.names=data;
                 $scope.btnName="SEARCH";
-
-
             })
             .error(function(err){
                 $log.error(err);
@@ -55,7 +53,7 @@ mcarApp.controller('rentController', ['$scope','$filter','$http','$log',function
 
             .success(function(data){
                 $scope.detailcustomer=data;
-                console.log(data);
+
             })
             .error(function(err){
                 $log.error(err);
@@ -88,6 +86,7 @@ mcarApp.controller('rentController', ['$scope','$filter','$http','$log',function
     $scope.previewBooking =function(){
            $scope.detailed=true;
         $scope.search=true;
+        $scope.status="Booked";
     }
     //Previous Form
     $scope.previousForm =function(){
@@ -118,7 +117,7 @@ mcarApp.controller('rentController', ['$scope','$filter','$http','$log',function
                 'phonenumber': $scope.detailcustomer[0].phone_number,
                 'dob': $scope.detailcustomer[0].dob,
                 'driving': $scope.detailcustomer[0].driving_no,
-                'booking_id': $scope.booking_id
+                'booking_id': $scope.booking_id,'status':$scope.status
             })
                 .success(function (data) {
                     alert(data);
