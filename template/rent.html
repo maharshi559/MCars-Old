@@ -1,7 +1,8 @@
 <section ng-controller="rentController" ng-init="loadCustomers()">
 
-    <div class="row "style="background-image: url('https://images.template.net/wp-content/uploads/2015/11/25190740/Ash-Color-Plain-Wallpaper-Download.jpg')">
-        <div class=" col-md-12 "  ng-hide="searchbar" >
+    <div class="row">
+        <div class="container"  ng-hide="searchbar" >
+            <div class="col-md-12" id="rent">
             <h4><b>SEARCH</b></h4><hr>
             <form>
                 <div class="col-md-6">
@@ -43,6 +44,7 @@
                 </div>
                 </div>
             </form>
+        </div>
         </div>
 
 
@@ -195,29 +197,20 @@
     </div>
     <!--list of cars starts here-->
 
-    <div class="col-md-12" ng-hide="carListDisplay" >
-        <div class="panel panel-default" ng-repeat="x in names | filter : search ">
-            <div class="panel-body" >
-                <div class="col-md-4">
+    <div class="col-md-12" ng-hide="carListDisplay" id="rent_car_list" >
+        <div class="panel panel-default col-md-3" ng-repeat="x in names | filter : search ">
+            <div class="panel-body"  id="car_tile">
+
+                    <h3><strong>{{x.name}}</strong></h3>
+                    <h5>{{x.number}}   {{x.model}}</h5>
+                    <h5><i class="fa fa-users"></i> {{x.capacity}}</h5>
+                    <h5>{{x.cartype}}</h5>
+
                     <img src="images/sample.png" alt="car" width="60%">
-                </div>
-                <div class="col-md-4">
-                    <h4><strong>{{x.name}}</strong></h4>
-                    <h5>Model: {{x.model}}</h5>
-                    <h5>Price/Day: {{x.price_day}}</h5>
-                    <h5>Extra/hr: {{x.extra_hr}}</h5>
-
-                </div>
-                <div class="col-md-4">
-                    <h5>Dealer: {{x.first_name +" "+ x.last_name }} </h5>
-                    <h5>Capacity: {{x.capacity}}</h5>
-                    <h5>Car Type: {{x.cartype}}</h5>
-                    <h5>Car Number: {{x.number}}</h5>
-                    <span class="pull-right">
-
-                            <button type="sumbit" ng-click="customerForm(x.car_id,x.vendor_id,x.name,x.cartype)" class="btn btn-info">BOOK</button>
-                            </span>
-                </div>
+                    <hr>
+                    <h5>Price/Day: &#8377;{{x.price_day}}</h5>
+                    <h5>Extra/hr: &#8377; {{x.extra_hr}}</h5>
+                    <button type="sumbit" ng-click="customerForm(x.car_id,x.vendor_id,x.name,x.cartype)" class="btn btn-info">BOOK</button>
             </div>
         </div>
 

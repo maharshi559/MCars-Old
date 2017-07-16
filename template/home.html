@@ -1,4 +1,4 @@
-<div class="container-fluid" ng-controller="adminController" ng-init="loadBookings();loadBillings()">
+<div class="container-fluid" id="home" ng-controller="adminController" ng-init="loadBookings();loadBillings()">
     <div class="row">
         <div class="col-md-12">
             <div class="row">
@@ -34,27 +34,25 @@
             <!--Feed generated to display cars to delivered-->
             <div class="row" id="feed">
                 <div class="col-md-6">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
+                    <div class="panel">
+                        <div class="panel-heading " id="pickup_list_panel_head">
                             <h5><i class="fa fa-share" aria-hidden="true"></i> Next Deliveries</h5>
                         </div>
                         <div class="panel-body">
-                            <ul  ng-repeat="x in bookings | orderBy:'pickup_date' ">
-                                <li>Delivery to {{x.first_name +" "+x.last_name}} on {{x.pickup_date}}</li>
+                            <ul  ng-repeat="x in bookings | reverse | limitTo: 5 ">
+                                <li><img title={{x.number}} src="images/sample.png" width="60px" alt="" class="img-circle">  {{x.name+" "}} Delivery to {{x.first_name +" "+x.last_name}} on {{x.pickup_date}}</li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
+                    <div class="panel">
+                        <div class="panel-heading" id="pickup_list_panel_head">
                             <h5><i class="fa fa-reply" aria-hidden="true"></i> Upcoming Pick-Ups</h5>
                         </div>
                         <div class="panel-body">
-                            <ul>
-                                <li>Delivery to ######## on 23rd Jan at ###########</li>
-                                <li>Delivery to ######## on 23rd Jan at ###########</li>
-                                <li>Delivery to ######## on 23rd Jan at ###########</li>
+                            <ul  ng-repeat="x in bookings | reverse | limitTo: 5 ">
+                                <li><img title={{x.number}} src="images/sample.png" width="60px" alt="" class="img-circle">  {{"   "+x.name+" "}} pick up from {{x.first_name +" "+x.last_name}} on {{x.dropoff_date}}</li>
                             </ul>
                         </div>
                     </div>
