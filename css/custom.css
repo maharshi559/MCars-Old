@@ -81,7 +81,6 @@ header .right{
     width: 100%;
     position: absolute;
 
-
 }
  /**/
  #page-content-wrapper #icons .well{
@@ -100,6 +99,7 @@ header .right{
 #wrapper.toggled #page-content-wrapper {
     position: absolute;
     margin-right: -250px;
+
 }
 
 #icons{

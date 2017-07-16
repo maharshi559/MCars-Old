@@ -4,23 +4,24 @@
 mcarApp.controller('rentController', ['$scope','$filter','$http','$log',function($scope,$filter,$http,$log) {
     $scope.btnName="SEARCH";
     $scope.btnType=true;
-    $scope.formDisplay=false;
-   // $scope.carListDisplay=true;
+   $scope.formDisplay=false;
+    $scope.carListDisplay=true;
 
     $scope.disableSearchForm = false;
     $scope.customer=-1;
-    $scope.detailed=false;
-    // $scope.search=false;
-
-    // $scope.pickup_date=$filter('date')(new Date(2017 ,06 ,29 ),"dd-MM-yyyy");
+    $scope.detailed=true;
+    var pickupDate = $("#pickup_date").data("kendoDateTimePicker");
+    var dropoffDate = $("#dropoff_date").data("kendoDateTimePicker");
+    //$scope.searchbar=false;
 
 
     // retrive data
     $scope.displayData =function(){
-
+         console.log($scope.dropoff_date);
+         console.log($scope.pickup_date);
         $http.post('./php/rentpopData.php',{'pickup_date':$scope.pickup_date,'dropoff_date':$scope.dropoff_date,'capacity':$scope.capacity,'cartype':$scope.cartype,'btnName':$scope.btnName})
             .success(function(data){
-                $scope.carListDisplay=true;
+                $scope.carListDisplay=false;
                 $scope.names=data;
                 $scope.btnName="SEARCH";
             })
@@ -30,13 +31,10 @@ mcarApp.controller('rentController', ['$scope','$filter','$http','$log',function
 
       }
     $scope.customerForm =function(car_id,vendor_id,name,cartype){
-        $scope.carListDisplay=false;
-        $scope.formDisplay=true;
-        $scope.btnType=false;
+        $scope.carListDisplay=true;
+         $scope.formDisplay=true;
+         $scope.btnType=false;
         $scope.disableSearchForm = true;
-        $scope.search=false;
-        var pickupDate = $("#pickup_date").data("kendoDateTimePicker");
-        var dropoffDate = $("#dropoff_date").data("kendoDateTimePicker");
         pickupDate.readonly();
         dropoffDate.readonly();
         $scope.car_id=car_id;
@@ -47,6 +45,18 @@ mcarApp.controller('rentController', ['$scope','$filter','$http','$log',function
 
 
     }
+
+
+    //Search Form
+    $scope.searchForm =function() {
+       $scope.formDisplay=false;
+       $scope.btnType=true;
+         $scope.disableSearchForm = false;
+        pickupDate.readonly(false);
+        dropoffDate.readonly(false);
+        $scope.btnName="SEARCH";
+    }
+
     $scope.customerAutofill =function(){
 
         $http.post('./php/loadAutoCustomers.php',{'customer_id':$scope.customer})
@@ -60,47 +70,24 @@ mcarApp.controller('rentController', ['$scope','$filter','$http','$log',function
             });
 
     }
-
-    //Search Form
-    $scope.searchForm =function() {
-        $scope.formDisplay=false;
-        $scope.btnType=true;
-        $scope.disableSearchForm = false;
-    }
-    //Previous Search
-    $scope.presearchForm =function() {
-        var pickupDate = $("#pickup_date").data("kendoDateTimePicker");
-        var dropoffDate = $("#dropoff_date").data("kendoDateTimePicker");
-        pickupDate.readonly(false);
-        dropoffDate.readonly(false);
-        $scope.carListDisplay=true;
-        $scope.formDisplay=false;
-        $scope.btnType=true;
-        $scope.disableSearchForm =false;
-
-        $scope.btnName="SEARCH";
-
-
-    }
     //Preview Booking
     $scope.previewBooking =function(){
-           $scope.detailed=true;
-        $scope.search=true;
+           $scope.detailed=false;
+        $scope.searchbar=true;
+        $scope.formDisplay=false;
         $scope.status="Booked";
     }
     //Previous Form
     $scope.previousForm =function(){
-        $scope.detailed=false;
-        $scope.search=false;
+        $scope.detailed=true;
+        $scope.searchbar=false;
+        $scope.formDisplay=true;
 
 
     }
     // Confirm Booking
     $scope.confirmBooking =function(){
-        // var search={'pickup_date':$scope.pickup_date,'dropoff_date':$scope.dropoff_date,'capacity':$scope.capacity};
-        // productService.addProduct(search);
-
-            $http.post('./php/confirmpushData.php', {
+        $http.post('./php/confirmpushData.php', {
                 'pickup_date': $scope.pickup_date,
                 'dropoff_date': $scope.dropoff_date,
                 'car_id': $scope.car_id,
@@ -137,6 +124,7 @@ mcarApp.controller('rentController', ['$scope','$filter','$http','$log',function
                 });
 
     }
+
     // load customers data
     $scope.loadCustomers =function(id){
         $http.get('./php/loadCustomers.php')
