@@ -132,7 +132,7 @@ header .right{
      color:#999999;
      margin-left:0px;
      height: 40px;
-     z-index: -2;
+
  }
 
  footer p{
@@ -249,18 +249,41 @@ header .right{
 
  /*-------------------Rent Styling-------------------*/
 
+
+ #rent_bg{
+
+     margin:-20px;
+ }
+
+ #rent #search_button{
+     background: transparent;
+     outline: none;
+     color: #f2f3f8;
+     border: none;
+     box-shadow: #d9d9d9 2px 2px 200px 2px;
+ }
+
+ #rent{
+     padding: 20px;
+     margin: 10% 15%;
+     box-shadow:0px 0px 1000px 2px  #c7d8e1;
+     /*background: #f06d73;*/
+     background: linear-gradient(to right,  #4c5366, #3a6073);
+     /*background: -webkit-linear-gradient(to right, #283E51, #434343); !* Chrome 10-25, Safari 5.1-6 *!*/
+     /*background: linear-gradient(to right, #283E51, #434343); !* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *!*/
+     width: 70%;
+     color: #e2ebf0;
+ }
+
  #rent select{
      outline: none;
      width: 100%;
      height:40px;
+     border-radius: 0;
      /*box-shadow: 4px 4px 5px gray;*/
-     border: none;
+
  }
 
- #rent{
-     padding-bottom: 15px;
-     border-bottom: 2px dotted #3f4659;
- }
 
  #rent select:active{
      outline: none;
@@ -276,8 +299,12 @@ header .right{
  }
 
  #rent_car_list{
-     padding-top: 30px;
+     padding: 30px 30px;
      text-align: center;
+     margin-bottom: 50px;
+
+
+     width: 100%;
  }
  #rent_car_list h3{
      font-family: 'Quicksand', sans-serif;
@@ -290,6 +317,52 @@ header .right{
  #rent_car_list .panel{
      display: inline-block;
      margin: 10px;
-     box-shadow: 0 4px 2px -2px gray;
+     box-shadow: 0 4px 2px 2px gray;
+     background: linear-gradient(to right,  #4c5366, #3a6073);
+     /*background: -webkit-linear-gradient(to right, #283E51, #434343); !* Chrome 10-25, Safari 5.1-6 *!*/
+     /*background: linear-gradient(to right, #283E51, #434343); !* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *!*/
+     color: #e2ebf0;
  }
 
+/*-------------- BOOKING STYLING ----------------*/
+
+ #searchform{
+     background-color: #3f4659;
+     font-family: 'Lato', sans-serif;
+     color: #4c5366;
+
+ }
+
+#searchform #table-head th{
+    text-align: center;
+    color: #f2f3f8;
+    font-family: 'Quicksand', sans-serif;
+    background:linear-gradient(to top, #f06d73, #ef5e7b);
+}
+
+ #searchform #table-row td{
+     text-align: center;
+
+ }
+
+.table .table-bordered{
+        border-collapse: collapse;
+}
+
+#searchform #searchbox{
+
+    background-color: #3f4659;
+    padding-top: 10px;
+    padding-left: 50px;
+}
+
+ #searchform #searchbox input[type=text]{
+     width: 50%;
+     margin: 0 25%;
+     border-radius: 25px;
+     background-color: #f2f3f8;
+ }
+
+ #searchform #table{
+     margin-bottom: 50px;
+ }
