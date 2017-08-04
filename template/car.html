@@ -1,16 +1,14 @@
 
     <section id="searchform" ng-controller="carController" ng-init="displayData();loadVendors()">
-        <div class="col-md-12">
-            <div class="well ">
-                <form action="">
-                    <div class="form-group">
-                        <a  class="btn btn-primary" id="add" ng-click="carToggle()"><i class="fa fa-plus  "></i></a>
+        <div class="col-md-12" id="car-searchbox" >
 
-                        <input type="text" ng-model="search" class="form-control pull-right" style="width:90%" name="search" placeholder="Search for Cars.." >
+                        <div class="col-md-2">
+                            <a  class="btn btn-circle-edit" id="btn-add" ng-click="carToggle()"><i class="fa fa-plus"></i></a>
+                        </div>
+                        <div class="col-md-10">
+                            <input type="text" ng-model="search" style="width: 30%" class="form-control" style="width:90%" name="search" placeholder="Search for Cars.." >
+                        </div>
 
-                    </div>
-                </form>
-            </div>
         </div>
         <div class="col-md-12">
             <div class="well col-md-12 panel panel-default" id="carInput"  hidden>
@@ -48,11 +46,11 @@
                             <label for="capacity">Capacity</label>
                             <input type="text"  class="form-control" ng-model="capacity" placeholder="Capacity" required>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group col-md-6">
                             <label for="price">Price/Day</label>
                             <input type="text"  class="form-control" ng-model="price" placeholder="Price/Day" required>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group col-md-6">
                             <label for="extra">Extra/hr</label>
                             <input type="text"  class="form-control" ng-model="extra" placeholder="Extra/hr" required>
                         </div>
@@ -69,6 +67,14 @@
                                 <option value="SUV">SUV</option>
                             </select>
                         </div>
+                        <div class="form-group">
+                            <label for="status">Present status</label>
+                            <select class="form-control" id="status" ng-model="currentstatus"  required>
+                                <option value="Available">Available</option>
+                                <option value="Service">Service</option>
+                                <option value="NotAvailable">Not Available</option>
+                            </select>
+                        </div>
 
                     </div>
                         <input type="submit" class="btn btn-success " value="ADD" ng-click="insertData()" >
@@ -80,31 +86,41 @@
 
         <!--list of cars starts here-->
 
-            <div class="col-md-12">
-                    <div class="panel panel-default" ng-repeat="x in names | filter : search ">
-                        <div class="panel-body" >
-                            <div class="col-md-4">
-                                <img src="images/sample.png" alt="car" width="60%">
+            <div class="col-md-12" id="car_list">
+                <div class="panel panel-default col-md-3" ng-repeat="x in names | filter : search" >
+
+                    <div class="panel-body" id="car_tile">
+
+                            <div class="row">
+                                <div class="col-md-offset-8">
+                                    <i class="fa fa-edit" ng-click="updateData(x.car_id,x.vendor_id,x.name,x.pic,x.model,x.capacity,x.cartype,x.price_day,x.extra_hr,x.number,x.vprice,x.current_status)" data-toggle="modal" data-target="#myModal"></i>
+                                    <i class="fa fa-trash" ng-click="deleteData(x.car_id)"></i>
+                                </div>
+                                <div class="col-md-12">
+                                    <img src="images/sample.png" alt="car" width="70%">
+                                    <h4><strong>{{x.name}}</strong></h4>
+                                    <h5> {{x.model}}</h5>
+                                    <h5><i class="fa fa-users"></i> {{x.capacity}}</h5>
+                                    <h5> {{x.cartype}}</h5>
+                                    <h5>{{x.current_status}}</h5>
+                                    <!--<h5>Price/Day: {{x.price_day}}/-</h5>-->
+                                    <!--<h5>Next Booking: 6/6/2017</h5>-->
+
+                                </div>
                             </div>
-                            <div class="col-md-4">
-                                <h4><strong>{{x.name}}</strong></h4>
-                                <h5>Model: {{x.model}}</h5>
-                                <h5>Capacity: {{x.capacity}}</h5>
-                                <h5>Price/Day: {{x.price_day}}/-</h5>
-                            </div>
-                            <div class="col-md-4">
-                                <h5>Next Booking: 6/6/2017</h5>
-                                <h5>Car Type: {{x.cartype}}</h5>
-                                <h5>Present Status:{{x.current_status}}</h5>
-                                <span class="pull-right">
-                                <i class="fa fa-edit btn btn-default"  ng-click="updateData(x.car_id,x.vendor_id,x.name,x.pic,x.model,x.capacity,x.cartype,x.price_day,x.extra_hr,x.number,x.vprice,x.current_status)" data-toggle="modal" data-target="#myModal"></i>
-                                <i class="fa fa-trash btn btn-default" ng-click="deleteData(x.car_id)"></i>
-                            </span>
-                            </div>
+                    </div>
+                    <div class="panel-body" id="panel-footer">
+                        <div class="col-md-6" id="price">
+                            <h5>Price/Day<br>{{x.price_day}}/-</h5>
+                        </div>
+                        <div class="col-md-6" id="bookdate">
+                            <h5>Available on<br> 6/6/2017</h5>
                         </div>
                     </div>
 
-            </div>
+
+
+                </div>
 
 
         <!-- EDITING CAR DETAILS MOEL--->
@@ -112,12 +128,11 @@
         <!-- Modal -->
         <div class="modal fade" id="myModal" role="dialog">
             <div class="modal-dialog modal-lg">
-
                 <!-- Modal content-->
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Car Details</h4>
+                        <h4 class="modal-title"><i class="fa fa-car"></i></h4>
                     </div>
                     <div class="modal-body">
                         <form>
@@ -139,13 +154,12 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="model">Model</label>
-                                    <input type="text" id="model"" class="form-control" ng-model="model" placeholder="Model" required>
+                                    <input type="text" id="model" class="form-control" ng-model="model" placeholder="Model" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="carnumber">Car Number</label>
                                     <input type="text" id="carnumber" class="form-control" ng-model="number" placeholder="Car Number" required>
                                 </div>
-
                             </div>
                             <div class="col-md-6">
 

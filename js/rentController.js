@@ -4,7 +4,7 @@
 mcarApp.controller('rentController', ['$scope','$filter','$http','$log',function($scope,$filter,$http,$log) {
     $scope.btnName="SEARCH";
     $scope.btnType=true;
-   $scope.formDisplay=false;
+    $scope.formDisplay=false;
     $scope.carListDisplay=true;
 
     $scope.disableSearchForm = false;

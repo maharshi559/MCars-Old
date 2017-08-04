@@ -26,7 +26,7 @@
      margin:0px;
      padding:5px;
      float:left;
-     padding-left:38%
+     padding-left: 38%;
  }
 
  header #menu-toggle{
@@ -213,6 +213,10 @@ header .right{
 
  /*---------home styling-------------*/
 
+ #available, #bookings, #onroad, #billing, #vendors, #statistics{
+     box-shadow: 0 8px 8px -6px gray;
+ }
+
  #icons a:hover{
      text-decoration: none;
      color: #4c5366;
@@ -229,9 +233,14 @@ header .right{
 
 
  #pickup_list_panel_head{
-     background-color: #4c5366;
+     background-color: #ef5e7b;
      color: #d9d9d9;
      text-align: center;
+ }
+
+ #pickup_list_panel_head h5{
+     font-size: 15px;
+     font-family: 'Quicksand', sans-serif;
  }
 
  #feed .panel {
@@ -284,7 +293,9 @@ header .right{
 
  }
 
-
+#rent_car_list .panel{
+    padding: 0;
+}
  #rent select:active{
      outline: none;
      width: 100%;
@@ -299,7 +310,7 @@ header .right{
  }
 
  #rent_car_list{
-     padding: 30px 30px;
+     padding: 30px 15px;
      text-align: center;
      margin-bottom: 50px;
 
@@ -317,13 +328,24 @@ header .right{
  #rent_car_list .panel{
      display: inline-block;
      margin: 10px;
-     box-shadow: 0 4px 2px 2px gray;
-     background: linear-gradient(to right,  #4c5366, #3a6073);
+     box-shadow: 0 8px 6px -6px gray;
+     background: linear-gradient(to right,  #f2f3f8, #ffffff);
      /*background: -webkit-linear-gradient(to right, #283E51, #434343); !* Chrome 10-25, Safari 5.1-6 *!*/
      /*background: linear-gradient(to right, #283E51, #434343); !* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *!*/
-     color: #e2ebf0;
+     color: #4c5366;
  }
 
+ #car_tile{
+     padding: 20px 0px;
+ }
+
+ #car_tile h3{
+     text-transform: uppercase;
+ }
+
+ #car_tile button{
+     background: linear-gradient(to right,  #4c5366, #3a6073);
+ }
 /*-------------- BOOKING STYLING ----------------*/
 
  #searchform{
@@ -338,14 +360,20 @@ header .right{
     color: #f2f3f8;
     font-family: 'Quicksand', sans-serif;
     background:linear-gradient(to top, #f06d73, #ef5e7b);
+    border-collapse: collapse;
 }
 
- #searchform #table-row td{
+ #searchform #table tr{
      text-align: center;
+     border: none;
+     border-collapse: collapse;
+     background: #ffffff;
+     margin-top: 13px;
+     padding: 20px;
 
  }
 
-.table .table-bordered{
+.table .table-striped{
         border-collapse: collapse;
 }
 
@@ -365,4 +393,141 @@ header .right{
 
  #searchform #table{
      margin-bottom: 50px;
+ }
+
+
+/*---------------------------------------------------------*/
+                    /*Cars Styling*/
+ /*---------------------------------------------------------*/
+
+ #btn-circle-edit{
+     width:40px;
+     height: 40px;
+     border-radius: 20px;
+     padding: 14px 14px;
+     color: #ffffff;
+     background: linear-gradient(to top,  #2170ef, #1cb5e0);
+ }
+ 
+ #btn-circle-edit:hover{
+     width:40px;
+     height: 40px;
+     border-radius: 20px;
+     padding: 14px 14px;
+     background:#0a54cc;
+ }
+
+
+ #btn-circle-delete{
+     width:40px;
+     height: 40px;
+     border-radius: 20px;
+     padding: 14px 14px;
+     color: #ffffff;
+     background: linear-gradient(to top, #cb2d3e, #ef473a);
+ }
+ #btn-circle-delete:hover{
+     width:40px;
+     height: 40px;
+     border-radius: 20px;
+     padding: 14px 14px;
+     background: #cb2d3e;
+
+ }
+ #btn-add{
+     width:30px;
+     height: 30px;
+     border-radius: 15px;
+     padding: 5px 5px;
+     color: #283E51;
+     /*background: radial-gradient(to right, #000046, #1cb5e0);*/
+     background: linear-gradient(to top, #f2f3f8, #ffffff);
+ }
+
+ #btn-to-edit{
+     display: block;
+ }
+
+ #car_list .panel{
+     padding: 0;
+ }
+
+
+ #car_list{
+     text-align: center;
+     margin-left:10%;
+     margin-bottom: 50px;
+     width: 100%;
+ }
+ #car_list h3{
+     font-family: 'Quicksand', sans-serif;
+ }
+
+
+ #car_list .panel{
+     display: inline-block;
+     margin: 20px;
+     box-shadow: 0 8px 6px -6px gray;
+     background: linear-gradient(to right,  #f2f3f8, #ffffff);
+     /*background: -webkit-linear-gradient(to right, #283E51, #434343); !* Chrome 10-25, Safari 5.1-6 *!*/
+     /*background: linear-gradient(to right, #283E51, #434343); !* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *!*/
+     color: #4c5366;
+ }
+
+ #car_tile{
+     padding: 20px 0px;
+     display: inline-block;
+ }
+
+ #panel-footer #price{
+     text-align: center;
+     display: inline-block;
+
+ }
+
+ #panel-footer #bookdate{
+     text-align: center;
+     display: inline-block;
+
+ }
+
+ #car_list #panel-footer{
+     background-color: #ffffff;
+     color: #3a6073;
+     font-family: 'Quicksand', sans-serif;
+ }
+
+ #car_tile h3{
+     text-transform: uppercase;
+ }
+
+ #car_tile button{
+     background: linear-gradient(to right,  #4c5366, #3a6073);
+ }
+
+ #car_tile .col-md-offset-8 i{
+     color: #cdcfd3;
+     padding: 5px;
+ }
+ #searchform #car-searchbox{
+     background-color: #3f4659;
+     padding: 10px 50px;
+ }
+
+ #searchform #car-searchbox input[type=text]{
+     width: 50%;
+     margin: 0 25%;
+     border-radius: 25px;
+     background-color: #f2f3f8;
+ }
+
+ #carInput{
+     border-left: solid #ef5e7b 2px;
+     border-right: solid #ef5e7b 2px;
+     border-bottom: solid #ef5e7b 2px;
+ }
+
+ .modal-body{
+     padding-top: 30px;
+     border: none;
  }

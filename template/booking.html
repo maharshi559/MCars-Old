@@ -9,7 +9,7 @@
        </div>
 
     <div class="col-md-12" id="table">
-        <table class="table table-bordered">
+        <table class="table table-striped">
             <tr id="table-head">
                 <th>Booking ID</th>
                 <th>Car Name</th>
@@ -28,10 +28,10 @@
                 <td>{{x.pickup_date}}</td>
                 <td>{{x.dropoff_date}}</td>
                 <td>{{x.first_name+" "+x.last_name}}</td>
-                <td class="status">{{x.status}}</td>
+                <td ng-class="status">{{x.status}}</td>
                 <td>
                     <i class="fa fa-pencil btn btn-default" data-toggle="modal" ng-click="statusModal(x.booking_id,x.status,x.number,x.car_id,x.customer_id,x.pickup_date,x.dropoff_date,x.price_day,x.extra_hr)" data-target="#myModal"></i>
-                    <i class="fa fa-edit btn btn-default"  ng-click="updateData()"></i>
+                    <!--<i class="fa fa-edit btn btn-default"  ng-click="updateData()"></i>-->
 
                 </td>
             </tr>
@@ -144,35 +144,15 @@
 
 </section>
 <script>
-    $(document).ready(function () {
-
-        var status = document.getElementsByClassName("status");
-        // var statusContent = status.innerText;
-        // console.log(statusContent);
-
-         $('td.status').each(function() {
-        //     if ($(this).text() == 'Booked') {
-        //         $(this).css('background-color', '#000');
-        //     }
-
-        console.log(status);
-
-             for(i=0; i<status.length;i++){
-                if($('td.status.ng-binding').text == "Booked"){
-                    $('td.status.ng-binding').css('background-color', '#000');
-                    console.log("reached");
-                }
-                else if($('td.status.ng-binding').text == "On Road"){
-                    $('td.status.ng-binding').css('background-color', 'red');
-                }
-                else if($('td.status').text == "Returned"){
-                    $('td.status.ng-binding').css('background-color', 'red');
-                }
-                else{
-                    $('td.status.ng-binding').css('background-color', 'red');
-                }
-             }
-         });
-
-    });
+   $(document).ready(function () {
+//
+        var status = angular.element(document.getElementsByClassName("status"));
+//
+//        console.log(status.length);
+     console.log(status .innerText);
+//        if($( status.innerText == 'booked')){
+//            this.style.color = "#cc7839"
+//        }
+//
+ });
 </script>

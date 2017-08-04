@@ -8,7 +8,7 @@ mcarApp.controller('adminController',['$scope','$http','$log',function($scope,$h
 
             .success(function(data){
                 $scope.bookings=data;
-                // console.log($scope.bookings);
+                console.log($scope.bookings);
             })
             .error(function(err){
                 $log.error(err);

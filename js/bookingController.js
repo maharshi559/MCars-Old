@@ -25,6 +25,8 @@ mcarApp.controller('bookingController',['$scope','$http','$log',function($scope,
             });
 
     }
+
+    
     $scope.statusModal =function(booking_id,status,number,car_id,customer_id,pickup_date,dropoff_date,price_day,extra_hr){
         $scope.booking_id=booking_id;
         $scope.status=status;
