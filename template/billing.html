@@ -17,6 +17,7 @@
                         <th>No. of days</th>
                         <th>Total Cost</th>
                         <th>Status</th>
+                        <th>Edit</th>
                     </tr>
 
                     <tr id="table-row" ng-repeat="x in billings | filter : search " >
@@ -29,15 +30,41 @@
                         <td>{{x.diff }}</td>
                         <td>{{x.diff * x.price_day}}</td>
                         <td>{{x.billing_status}}</td>
+                        <td><i class="fa fa-pencil btn btn-default" data-toggle="modal" ng-click="statusModal(x.booking_id,x.status,x.number,x.car_id,x.customer_id,x.pickup_date,x.dropoff_date,x.price_day,x.extra_hr)" data-target="#myModal"></i></td>
+                    </tr>
+                </table>
+            </div>
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog  modal-sm">
+            <div class="modal-content" id="status-change">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <i class="fa fa-clone fa-3x"></i>
+                <h4 class="modal-title">Billing Status Change</h4>
+            </div>
+            <div class="modal-body">
+                <table>
+
+                    <tr>
+                        <h5><b>Billing Status</b></h5>
+
+                        <select class="form-control" id="status"  ng-model="status"  required>
+                            <option value="Paid">Paid</option>
+                            <option value="Unpaid">Unpaid</option>
+
+                        </select>
 
                     </tr>
-
                 </table>
 
-            </div>
-
-
+            <button type="button" class="btn btn-success" ng-click="changeStatus()" data-dismiss="modal">Update</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
+            </div>
+    </div>
+
+    </div>
+
 
 
 

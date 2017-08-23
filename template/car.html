@@ -3,7 +3,7 @@
         <div class="col-md-12" id="car-searchbox" >
 
                         <div class="col-md-2">
-                            <a  class="btn btn-circle-edit" id="btn-add" ng-click="carToggle()"><i class="fa fa-plus"></i></a>
+                            <a  class="btn btn-primary" id="btn-add" data-toggle="modal" data-target="#myModal" ng-click="carToggle()"><i class="fa fa-plus  "></i></a>
                         </div>
                         <div class="col-md-10">
                             <input type="text" ng-model="search" style="width: 30%" class="form-control" style="width:90%" name="search" placeholder="Search for Cars.." >
@@ -26,10 +26,10 @@
                             <label for="carname">Car Name</label>
                             <input type="text"  class="form-control" ng-model="carName" placeholder="Car Name" required>
                         </div>
-                        <div class="form-group">
-                            <label for="carpicture">Car Picture</label>
-                            <input type="text"  class="form-control" ng-model="carPic" placeholder="Car Picture" required>
-                        </div>
+                        <!--<div class="form-group">-->
+                            <!--<label for="carpicture">Car Picture</label>-->
+                            <!--<input type="text"  class="form-control" ng-model="carPic" placeholder="Car Picture" required>-->
+                        <!--</div>-->
                         <div class="form-group">
                             <label for="model">Model</label>
                             <input type="text" class="form-control" ng-model="model" placeholder="Model" required>
@@ -122,20 +122,17 @@
 
                 </div>
 
-
-        <!-- EDITING CAR DETAILS MOEL--->
+        <!-- EDITING CAR DETAILS MOdEL--->
 
         <!-- Modal -->
         <div class="modal fade" id="myModal" role="dialog">
             <div class="modal-dialog modal-lg">
                 <!-- Modal content-->
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title"><i class="fa fa-car"></i></h4>
-                    </div>
+
                     <div class="modal-body">
-                        <form>
+                        <h4><i class="fa fa-car"></i> Modify Car Details </h4>
+
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="vendor">Car Vendor</label>
@@ -144,7 +141,7 @@
                                         <option ng-repeat="vendor in vendors " value="{{vendor.vendor_id}}">{{vendor.first_name +" "+ vendor.last_name }}</option>
                                     </select>
                                 </div>
-                                <div class="form-group" >
+                                <div class="form-group">
                                     <label for="carname">Car Name</label>
                                     <input type="text" id="carname" class="form-control" ng-model="carName" placeholder="Car Name" required>
                                 </div>
@@ -197,21 +194,16 @@
                                     </select>
                                 </div>
 
-
-
-
                             </div>
-
-                        </form>
-
-                    </div>
-                    <div class="modal-footer">
                         <input type="submit" class="btn btn-success " data-dismiss="modal" value="{{btnName}}" ng-click="insertData()">
                         <button type="reset" class="btn btn-default" data-dismiss="modal">Close</button>
+
+
                     </div>
+
                 </div>
 
             </div>
         </div>
-
+            </div>
     </section>

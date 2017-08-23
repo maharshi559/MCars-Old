@@ -7,7 +7,7 @@ mcarApp.controller('customerController', ['$scope','$http','$log',function($scop
     $scope.btnName="ADD";
     //hidden toggle
     $scope.customerToggle =function() {
-        $('#customerInput').slideToggle();
+        //$('#customerInput').slideToggle();
         $("#add").find('i').toggleClass('fa-plus fa-times');
     }
 
@@ -53,7 +53,7 @@ mcarApp.controller('customerController', ['$scope','$http','$log',function($scop
     // update data
     $scope.updateData =function(customer_id,first_name,last_name,address,city,pincode,email,phone_number,dob,driving_no){
          //toggle to come down
-            $('#customerInput').slideToggle();
+            //$('#customerInput').slideToggle();
             $("#add").find('i').toggleClass('fa-plus fa-times');
             $scope.customer_id = customer_id;
             $scope.fname = first_name;

@@ -400,38 +400,28 @@ header .right{
                     /*Cars Styling*/
  /*---------------------------------------------------------*/
 
- #btn-circle-edit{
-     width:40px;
-     height: 40px;
-     border-radius: 20px;
-     padding: 14px 14px;
-     color: #ffffff;
-     background: linear-gradient(to top,  #2170ef, #1cb5e0);
- }
+
  
- #btn-circle-edit:hover{
-     width:40px;
-     height: 40px;
-     border-radius: 20px;
+ #btn-circle-edit{
      padding: 14px 14px;
-     background:#0a54cc;
+     color: cadetblue;
  }
+ #btn-circle-edit:hover{
+     padding: 14px 14px;
+     color: #283E51;
+ }
+
 
 
  #btn-circle-delete{
-     width:40px;
-     height: 40px;
-     border-radius: 20px;
+
      padding: 14px 14px;
-     color: #ffffff;
-     background: linear-gradient(to top, #cb2d3e, #ef473a);
- }
- #btn-circle-delete:hover{
-     width:40px;
-     height: 40px;
-     border-radius: 20px;
+     color: cadetblue;
+
+ } #btn-circle-delete:hover{
+
      padding: 14px 14px;
-     background: #cb2d3e;
+     color: #f34b4b;
 
  }
  #btn-add{
@@ -530,4 +520,61 @@ header .right{
  .modal-body{
      padding-top: 30px;
      border: none;
+ }
+ /*existing customer styling from here*/
+ /*#existing select{*/
+     /*width: 50%;*/
+     /*padding: 15px;*/
+     /*margin: 10px;*/
+ /*}*/
+
+ #existing button{
+     margin: 10px;
+ }
+
+ #status-change{
+   text-align: center;
+ }
+
+ #status-change select{
+     width: 70%;
+     margin-left: 15%;
+ }
+
+
+ #status-change table{
+     margin: 10px 30px;
+ }
+.media{
+    margin: 0;
+}
+ #media-style{
+     padding: 0px 15px;
+     margin: 0;
+
+ }
+
+ #media-style .panel{
+     height: 150px;
+ }
+
+.media-left{
+     padding: 20px;
+ }
+
+.media-body .media-heading{
+    margin: 20px 20px;
+
+}
+
+ .media-body p{
+     margin: 10px 20px;
+ }
+
+ .media-body p{
+     margin: 10px 20px;
+ }
+
+ #billing-button{
+     margin: 10px;
  }

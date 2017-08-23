@@ -4,7 +4,7 @@
 mcarApp.controller('vendorController',['$scope','$http','$log',function($scope,$http,$log) {
     $scope.btnName="ADD";
     $scope.vendorToggle = function () {
-        $('#vendorInput').slideToggle();
+        //$('#vendorInput').slideToggle();
         $("#add").find('i').toggleClass('fa-plus fa-times');
     }
 
@@ -47,7 +47,7 @@ mcarApp.controller('vendorController',['$scope','$http','$log',function($scope,$
     // update data
     $scope.updateData =function(vendor_id,first_name,last_name,address,city,pincode,email,phone_number,company_name){
         //toggle to come down
-        $('#vendorInput').slideToggle();
+        //$('#vendorInput').slideToggle();
         $("#add").find('i').toggleClass('fa-plus fa-times');
 
         $scope.vendor_id = vendor_id;

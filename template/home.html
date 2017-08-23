@@ -40,7 +40,7 @@
                         </div>
                         <div class="panel-body">
                             <ul  ng-repeat="x in bookings | reverse | limitTo: 5 ">
-                                <li><img title={{x.number}} src="images/sample.png" width="60px" alt="" class="img-circle">  {{x.name+" "}} Delivery to {{x.first_name +" "+x.last_name}} on {{x.pickup_date}}</li>
+                                <li><img title={{x.number}} src="images/sample.png" width="60px" alt="" class="img-circle"> Delivery to {{x.first_name +" "+x.last_name}} on {{x.pickup_date}}</li>
                             </ul>
                         </div>
                     </div>
@@ -52,7 +52,7 @@
                         </div>
                         <div class="panel-body">
                             <ul  ng-repeat="x in bookings | reverse | limitTo: 5 ">
-                                <li><img title={{x.number}} src="images/sample.png" width="60px" alt="" class="img-circle">  {{"   "+x.name+" "}} pick up from {{x.first_name +" "+x.last_name}} on {{x.dropoff_date}}</li>
+                                <li><img title={{x.number}} src="images/sample.png" width="60px" alt="" class="img-circle"> pick up from {{x.first_name +" "+x.last_name}} on {{x.dropoff_date}}</li>
                             </ul>
                         </div>
                     </div>

@@ -50,88 +50,90 @@
         </div>
 
 
-        <div class=" col-md-12 " id="customerInput" ng-show=formDisplay>
-
+        <div class=" col-md-12 searchform " id="searchform" ng-show=formDisplay>
+        <section class="container" id="existing">
             <h4><b>Customer Details</b></h4><hr>
-            <div class=" col-md-12">
-            <div class="form-group">
-                Existing  Customer <input type="checkbox" ng-model="checked" >
-
-                <select  class="form-control pull-right"  style="width:70%;" ng-model="customer"  ng-change="customerAutofill()" ng-show="checked" >
+            <div class="col-md-12" >
+            <div class="form-group" >
+                <h4>Existing  Customer? (check this box to choose) <input type="checkbox" ng-model="checked"></h4>
+                <div class="row">
+                <select  class="form-control col-md-6"    ng-model="customer"  ng-change="customerAutofill()" ng-show="checked" >
                     <option value="">Select customer</option>
                     <option ng-repeat="customer in customers "  value="{{customer.customer_id}}">{{customer.first_name +" "+ customer.last_name }}</option>
                 </select>
-            </div>
-            </div>
+            <div class="container">
+                <h4>New Customer</h4>
+                <form class="col-md-12" id="searchform">
+                    <div ng-hide="checked">
+                        <div ng-repeat="x in detailcustomer" >
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="fname">First Name</label>
+                                    <input type="text" class="form-control" id="fname"ng-model="x.first_name"  placeholder="First Name"  required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lname">Last Name</label>
+                                    <input type="text" class="form-control" id="lname" ng-model="x.last_name"  placeholder="Last Name"  required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email address</label>
+                                    <input type="email" class="form-control" id="email" ng-model="x.email" placeholder="Email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="dobdate">Date of Birth</label>
+                                    <input id="dobdate"   ng-model="x.dob"  style="width:100%" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phonenumber">Phonenumber</label>
+                                    <input type="text" class="form-control" id="phonenumber" ng-model="x.phone_number" placeholder="phonenumber"  required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="address">Address</label>
+                                    <input type="text" class="form-control" id="address" ng-model="x.address" placeholder="Address"  required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="city">City</label>
+                                    <input type="text" class="form-control" id="city" ng-model="x.city" placeholder="City"   required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="pincode">Pincode</label>
+                                    <input type="pincode" class="form-control" id="pincode" ng-model="x.pincode" placeholder="Pincode"  required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="license">Driving N0.</label>
+                                    <input type="text" class="form-control" id="license" ng-model="x.driving_no" placeholder="Driving License"  required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="aadhar">Aadhar No.</label>
+                                    <input type="number" class="form-control" id="aadhar" ng-model="aadhar" placeholder="Aadhar Number" >
+                                </div>
 
-            <form>
-                <div ng-hide="checked">
-                  <div ng-repeat="x in detailcustomer" >
-                    <div class="col-md-6">
 
-                        <div class="form-group">
-                            <label for="fname">First Name</label>
-                            <input type="text" class="form-control" id="fname"ng-model="x.first_name"  placeholder="First Name"  required>
-                        </div>
-                        <div class="form-group">
-                            <label for="lname">Last Name</label>
-                            <input type="text" class="form-control" id="lname" ng-model="x.last_name"  placeholder="Last Name"  required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email address</label>
-                            <input type="email" class="form-control" id="email" ng-model="x.email" placeholder="Email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="dobdate">Date of Birth</label>
-                            <input id="dobdate"   ng-model="x.dob"  style="width:100%" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phonenumber">Phonenumber</label>
-                            <input type="text" class="form-control" id="phonenumber" ng-model="x.phone_number" placeholder="phonenumber"  required>
+
+                            </div>
+
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="address">Address</label>
-                            <input type="text" class="form-control" id="address" ng-model="x.address" placeholder="Address"  required>
-                        </div>
-                        <div class="form-group">
-                            <label for="city">City</label>
-                            <input type="text" class="form-control" id="city" ng-model="x.city" placeholder="City"   required>
-                        </div>
-                        <div class="form-group">
-                            <label for="pincode">Pincode</label>
-                            <input type="pincode" class="form-control" id="pincode" ng-model="x.pincode" placeholder="Pincode"  required>
-                        </div>
-                        <div class="form-group">
-                            <label for="license">Driving N0.</label>
-                            <input type="text" class="form-control" id="license" ng-model="x.driving_no" placeholder="Driving License"  required>
-                        </div>
-                        <div class="form-group">
-                            <label for="aadhar">Aadhar No.</label>
-                            <input type="number" class="form-control" id="aadhar" ng-model="aadhar" placeholder="Aadhar Number" >
-                        </div>
-
-
-
-                    </div>
-
-                  </div>
+                    <button class="btn btn-success " value="Preview"  ng-click="previewBooking()">Preview</button>
+                    <button class="btn btn-warning " value="Cancel" ng-click="searchForm()">Cancel</button>
+                </form>
+            </div>
                 </div>
-                <input type="submit" class="btn btn-success " value="Preview"  ng-click="previewBooking()">
-                <input type="button" class="btn btn-warning " value="Cancel" ng-click="searchForm()">
-            </form>
 
+            </div>
+            </div>
+        </section>
 
         </div>
-
-    </div>
-
-    <div class="row" ng-hide="detailed">
+        </div>
+    <div class="container" id="search_form">
+        <div class="row" ng-hide="detailed">
 
         <div class="col-md-12">
             <h3>Booking Details:</h3>
-            <table class="table table-bordered table-condensed">
+            <table class="table table-bordered ">
                 <tr>
                     <th>Pickup Date</th>
                     <td>{{pickup_date}}</td>
@@ -190,13 +192,15 @@
 
             </table><br>
         </div>
-        <div col-md-12>
+        <div class="pull-right" id="existing">
            <a href="#/booking"><button type="submit" class="btn btn-success " ng-click="confirmBooking()">Confirm</button></a>
-            <input type="button" class="btn btn-warning " value="Cancel" ng-click="previousForm()">
+            <button type="button" class="btn btn-warning " value="Cancel" ng-click="previousForm()">Cancel</button>
         </div>
 
 
     </div>
+    </div>
+
     <!--list of cars starts here-->
 
     <div class="col-md-12" ng-hide="carListDisplay" id="rent_car_list" >

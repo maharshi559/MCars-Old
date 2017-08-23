@@ -28,9 +28,10 @@
                 <td>{{x.pickup_date}}</td>
                 <td>{{x.dropoff_date}}</td>
                 <td>{{x.first_name+" "+x.last_name}}</td>
-                <td ng-class="status">{{x.status}}</td>
+                <td>{{x.status}}</td>
                 <td>
                     <i class="fa fa-pencil btn btn-default" data-toggle="modal" ng-click="statusModal(x.booking_id,x.status,x.number,x.car_id,x.customer_id,x.pickup_date,x.dropoff_date,x.price_day,x.extra_hr)" data-target="#myModal"></i>
+                    <i class="fa fa-trash btn btn-default" data-toggle="modal" ng-click="statusModal(x.booking_id,x.status,x.number,x.car_id,x.customer_id,x.pickup_date,x.dropoff_date,x.price_day,x.extra_hr)" data-target="#myModal"></i>
                     <!--<i class="fa fa-edit btn btn-default"  ng-click="updateData()"></i>-->
 
                 </td>
@@ -41,35 +42,35 @@
     </div>
     <!-- Modal -->
     <div class="modal fade" id="myModal" role="dialog">
-        <div class="modal-dialog">
+        <div class="modal-dialog  modal-sm">
 
             <!-- Modal content-->
-            <div class="modal-content">
+            <div class="modal-content" id="status-change">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                    <i class="fa fa-clone fa-3x"></i>
                     <h4 class="modal-title">Status Change</h4>
                 </div>
                 <div class="modal-body">
                     <table>
                         <tr>
-                            <th>Car Number</th>
-                            <td >{{number}} <br></td>
-                            <th>Status</th>
-                            <td>
+                            <h5><b>Car Number</b></h5>
+                            <h5>{{number}}</h5>
+                        </tr>
+                        <tr>
+                            <h5><b>Status</b></h5>
+
                                 <select class="form-control" id="status"  ng-model="status"  required>
                                     <option value="Booked">Booked</option>
                                     <option value="OnRoad">On Road</option>
                                     <option value="Billing">Billing</option>
                                     <option value="Returned">Returned</option>
                                 </select>
-                            </td>
+
                         </tr>
                     </table>
 
-
-
-                </div>
-                <div class="modal-footer">
                     <button type="button" class="btn btn-success" ng-click="changeStatus()" data-dismiss="modal">Update</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
@@ -78,71 +79,93 @@
         </div>
     </div>
    </div>
-   <div ng-hide="billing">
-       <section class="container" >
 
-            <h1 style="text-align: center">Detailed Billing Report</h1>
+   <div ng-hide="billing">
+       <section class="container col-md-12" >
+            <h3 style="text-align: center; margin: 5px; color: #ef5e7b">Detailed Billing Report</h3>
            <div class="col-md-12">
-               <h5 class="well">Customer Details:</h5>
-                    <p>Customer: {{billings[0].first_name+" "+billings[0].last_name}}</p>
-                    <p>Email: {{billings[0].email}}</p>
-                    <p>Phone No: {{billings[0].phone_number}}</p>
-               <h5 class="well">Booking Details:</h5>
-                    <div class="col-md-4">
-                        <h5><b>Pick-Up Date : </b>{{billings[0].pickup_date | date:'dd-MMM-yyyy hh:mm a'}}</h5>
+               <div class="media col-md-6" id="media-style">
+                   <div class=" panel container">
+                       <div class="media-left media-middle">
+                           <i class="fa fa-user fa-5x"></i>
+                       </div>
+                       <div class="media-body">
+                            <h4 class="media-heading">Customer Details:</h4>
+                            <p><b>{{billings[0].first_name+" "+billings[0].last_name}}</b></p>
+                            <p>{{billings[0].email}}</p>
+                            <p>{{billings[0].phone_number}}</p>
+                       </div>
                     </div>
-                    <div class="col-md-4">
-                        <h5><b>Drop-off Date :</b> {{billings[0].dropoff_date | date:'dd-MMM-yyyy hh:mm a'}}</h5>
+               </div>
+               <div class="media col-md-6" style="margin: 0" id="media-style">
+                   <div class="panel container">
+                       <div class="media-left media-middle">
+                           <i class="fa fa-book fa-5x"></i>
+                       </div>
+                       <div class="media-body">
+                            <h4 class="media-heading">Booking Details:</h4>
+                            <p><b>Pick-Up Date : </b>{{billings[0].pickup_date | date:'dd-MMM-yyyy hh:mm a'}}</p>
+                            <p><b>Drop-off Date :</b> {{billings[0].dropoff_date | date:'dd-MMM-yyyy hh:mm a'}}</p>
+                            <p><b>Return Date :</b> {{billings[0].return_date | date:'dd-MMM-yyyy hh:mm a'}}</p>
+                       </div>
                     </div>
-               <div class="col-md-4">
-                   <h5><b>Return Date :</b> {{billings[0].return_date | date:'dd-MMM-yyyy hh:mm a'}}</h5>
+               </div>
+
+               <div class="media col-md-10">
+                   <div class="panel container">
+                       <div class="media-body">
+                           <h4 class="media-heading"> <i class="fa fa-credit-card"></i>Billing Details:</h4>
+                           <table class="table table-hover table-inverse col-md-6" >
+                               <tr>
+                                   <td>Base Price</td>
+                                   <td>{{billings[0].diff}} @ {{billings[0].price_day}}/day</td>
+                                   <td>{{billings[0].diff * billings[0].price_day}}</td>
+                               </tr>
+                               <tr>
+                                   <td>Extra Charges</td>
+                                   <td>{{extra_hours}}hrs @ {{billings[0].extra_hr}}/hr</td>
+                                   <td>{{extra_hours * billings[0].extra_hr}}</td>
+                               </tr>
+                               <tr>
+                               <td>Amount</td>
+                               <td> </td>
+                               <td>{{(billings[0].diff * billings[0].price_day) + (extra_hours * billings[0].extra_hr)}}</td>
+                           </tr>
+                               <tr>
+                                   <td>Damage</td>
+                                   <td> </td>
+                                   <td><input placeholder="0.00" type="text" ng-model="damage"></td>
+                               </tr>
+                               <tr>
+                                   <td>Discount</td>
+                                   <td> </td>
+                                   <td><input placeholder="0.00" type="text" ng-model="discount"></td>
+                               </tr>
+
+                               <tr>
+                                   <td>Total Amount</td>
+                                   <td> </td>
+                                   <td>{{((billings[0].diff * billings[0].price_day) + (extra_hours * billings[0].extra_hr))- discount - damage}}</td>
+                               </tr>
+                           </table>
+                       </div>
+                   </div>
+               </div>
+               <div class="col-md-2 pull-right" style="padding-bottom: 20%; text-align: center;">
+                   <!-- to be edited style attributes------------------------------------------------>
+                   <a ng-href='#/billing'><button class="btn btn-success " id="billing-button" ng-click="confirmBooking(billings[0].booking_id)">Confirm</button></a><br>
+                   <button type="button" id="billing-button" class="btn btn-primary" on-click="myFunction()">Print</button><br>
+                   <script>
+                       function myFunction() {
+                           console.log("fucntion called")
+                           window.print();
+                       }
+                   </script>
+                   <button type="button" id="billing-button" class="btn btn-warning " value="Cancel" ng-click="returnBookings()">Cancel</button>
                </div>
            </div>
-           <div class="col-md-12">
-               <h5 class=" well">Billing Details:</h5>
-
-               <table class="table table-hover table-inverse" >
-                   <tr class="warning">
-                       <td>Base Price</td>
-                       <td>{{billings[0].diff}} @ {{billings[0].price_day}}/day</td>
-                       <td>{{billings[0].diff * billings[0].price_day}}</td>
-                   </tr>
-                   <tr class="warning">
-                       <td>Extra Charges</td>
-                       <td>{{extra_hours}}hrs @ {{billings[0].extra_hr}}/hr</td>
-                       <td>{{extra_hours * billings[0].extra_hr}}</td>
-                   </tr>
-                   <tr class="info">
-                   <td>Amount</td>
-                   <td> </td>
-                   <td>{{(billings[0].diff * billings[0].price_day) + (extra_hours * billings[0].extra_hr)}}</td>
-               </tr>
-                   <tr class="info">
-                       <td>Discount</td>
-                       <td> </td>
-                       <td><input placeholder="0.00" type="text" ng-model="discount"></td>
-                   </tr>
-                    <hr>
-                   <tr class="info">
-                       <td>Total Amount</td>
-                       <td> </td>
-                       <td>{{((billings[0].diff * billings[0].price_day) + (extra_hours * billings[0].extra_hr))- discount}}</td>
-                   </tr>
-               </table>
-           </div>
            <!-- to be edited style attributes------------------------------------------------>
-           <div col-md-12 style="padding-bottom: 20%">
-          <!-- to be edited style attributes------------------------------------------------>
-               <a ng-href='#/billing'><button class="btn btn-success " ng-click="confirmBooking(billings[0].booking_id)">{{btnName}}</button></a>
-               <input type="button" class="btn btn-warning " value="Cancel" ng-click="returnBookings()">
-           </div>
-
 
        </section>
    </div>
-
-
 </section>
-<script>
-
-</script>
