@@ -1,15 +1,17 @@
 <section id="searchform" ng-controller="vendorController" ng-init="displayData()">
-    <div class="col-md-12">
-        <div class="well ">
-            <form action="">
-                <div class="form-group">
-                    <a  class="btn btn-primary" id="add" ng-click="vendorToggle()"><i class="fa fa-plus  "></i></a>
 
-                    <input type="text" ng-model="search" class="form-control pull-right" style="width:90%" name="search" placeholder="Search for Vendors.." >
+    <div class="col-md-12" id="car-searchbox">
 
-                </div>
-            </form>
+        <div class="col-md-2">
+
+            <a  class="btn btn-primary" id="btn-add" ng-click="vendorToggle()"><i class="fa fa-plus  "></i></a>
         </div>
+        <div class="col-md-10">
+            <input type="text" ng-model="search" class="form-control" style="width:30%" name="search" placeholder="Search for Customer.." >
+
+        </div>
+        </form>
+
     </div>
     <div class="col-md-12">
         <div class="well col-md-12" id="vendorInput" hidden>
@@ -61,18 +63,16 @@
     </div>
     <div class="col-md-12 ">
         <table class="table table-bordered">
-            <tr class="warning">
+            <tr id="table-head" class="warning">
                 <th>Firstname</th>
                 <th>Lastname</th>
                 <th>Address</th>
                 <!--<th>City</th>-->
                 <!--<th>Pincode</th>-->
-                <th>Email</th>
+                <th>E-mail</th>
                 <th>Phone</th>
                 <th>Company Name</th>
-                <th><i class="fa fa-edit btn btn-warning" ></i>
-                    <i class="fa fa-trash btn btn-danger" ></i>
-                </th>
+                <th>Edit</th>
             </tr>
             <tr ng-repeat="x in names | filter : search " >
                 <td>{{x.first_name}}</td>
@@ -84,8 +84,9 @@
                 <td>{{x.phone_number}}</td>
                 <td>{{x.company_name}}</td>
 
-                <td><i class="fa fa-edit btn btn-default"  ng-click="updateData(x.vendor_id,x.first_name,x.last_name,x.address,x.city,x.pincode,x.email,x.phone_number,x.company_name)"></i>
-                    <i class="fa fa-trash btn btn-default" ng-click="deleteData(x.vendor_id)"></i>
+
+                <td style="text-align: center"><i class="fa fa-edit" id="btn-circle-edit" ng-click="updateData(x.vendor_id,x.first_name,x.last_name,x.address,x.city,x.pincode,x.email,x.phone_number,x.company_name)"></i>
+                    <i class="fa fa-trash" id="btn-circle-delete" ng-click="deleteData(x.vendor_id)"></i>
                 </td>
             </tr>
 

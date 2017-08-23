@@ -28,9 +28,10 @@
                 <td>{{x.pickup_date}}</td>
                 <td>{{x.dropoff_date}}</td>
                 <td>{{x.first_name+" "+x.last_name}}</td>
-                <td ng-class="status">{{x.status}}</td>
+                <td>{{x.status}}</td>
                 <td>
                     <i class="fa fa-pencil btn btn-default" data-toggle="modal" ng-click="statusModal(x.booking_id,x.status,x.number,x.car_id,x.customer_id,x.pickup_date,x.dropoff_date,x.price_day,x.extra_hr)" data-target="#myModal"></i>
+                    <i class="fa fa-trash btn btn-default" data-toggle="modal" ng-click="statusModal(x.booking_id,x.status,x.number,x.car_id,x.customer_id,x.pickup_date,x.dropoff_date,x.price_day,x.extra_hr)" data-target="#myModal"></i>
                     <!--<i class="fa fa-edit btn btn-default"  ng-click="updateData()"></i>-->
 
                 </td>
@@ -41,7 +42,7 @@
     </div>
     <!-- Modal -->
     <div class="modal fade" id="myModal" role="dialog">
-        <div class="modal-dialog">
+        <div class="modal-dialog  modal-sm">
 
             <!-- Modal content-->
             <div class="modal-content">
@@ -49,27 +50,25 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">Status Change</h4>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body" id="status-change">
                     <table>
                         <tr>
-                            <th>Car Number</th>
-                            <td >{{number}} <br></td>
-                            <th>Status</th>
-                            <td>
+                            <h5><b>Car Number</b></h5>
+                            <h5>{{number}}</h5>
+                        </tr>
+                        <tr>
+                            <h5><b>Status</b></h5>
+
                                 <select class="form-control" id="status"  ng-model="status"  required>
                                     <option value="Booked">Booked</option>
                                     <option value="OnRoad">On Road</option>
                                     <option value="Billing">Billing</option>
                                     <option value="Returned">Returned</option>
                                 </select>
-                            </td>
+
                         </tr>
                     </table>
 
-
-
-                </div>
-                <div class="modal-footer">
                     <button type="button" class="btn btn-success" ng-click="changeStatus()" data-dismiss="modal">Update</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
@@ -78,15 +77,18 @@
         </div>
     </div>
    </div>
+
    <div ng-hide="billing">
        <section class="container" >
 
             <h1 style="text-align: center">Detailed Billing Report</h1>
            <div class="col-md-12">
                <h5 class="well">Customer Details:</h5>
+               <div class="container">
                     <p>Customer: {{billings[0].first_name+" "+billings[0].last_name}}</p>
                     <p>Email: {{billings[0].email}}</p>
                     <p>Phone No: {{billings[0].phone_number}}</p>
+               </div>
                <h5 class="well">Booking Details:</h5>
                     <div class="col-md-4">
                         <h5><b>Pick-Up Date : </b>{{billings[0].pickup_date | date:'dd-MMM-yyyy hh:mm a'}}</h5>

@@ -4,9 +4,10 @@
 mcarApp.controller('rentController', ['$scope','$filter','$http','$log',function($scope,$filter,$http,$log) {
     $scope.btnName="SEARCH";
     $scope.btnType=true;
+    //customer form display toggle
     $scope.formDisplay=false;
     $scope.carListDisplay=true;
-
+    $scope.searchbar = false;
     $scope.disableSearchForm = false;
     $scope.customer=-1;
     $scope.detailed=true;
@@ -21,6 +22,7 @@ mcarApp.controller('rentController', ['$scope','$filter','$http','$log',function
          console.log($scope.pickup_date);
         $http.post('./php/rentpopData.php',{'pickup_date':$scope.pickup_date,'dropoff_date':$scope.dropoff_date,'capacity':$scope.capacity,'cartype':$scope.cartype,'btnName':$scope.btnName})
             .success(function(data){
+                $scope.searchbar = true;
                 $scope.carListDisplay=false;
                 $scope.names=data;
                 $scope.btnName="SEARCH";
