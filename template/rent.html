@@ -55,18 +55,18 @@
             <h4><b>Customer Details</b></h4><hr>
             <div class="col-md-12" >
             <div class="form-group" >
-                <h4>Existing  Customer <input type="checkbox" ng-model="checked"></h4>
+                <h4>Existing  Customer? (check this box to choose) <input type="checkbox" ng-model="checked"></h4>
                 <div class="row">
                 <select  class="form-control col-md-6"    ng-model="customer"  ng-change="customerAutofill()" ng-show="checked" >
                     <option value="">Select customer</option>
                     <option ng-repeat="customer in customers "  value="{{customer.customer_id}}">{{customer.first_name +" "+ customer.last_name }}</option>
                 </select>
-
-                <form class="col-md-6" id="searchform">
+            <div class="container">
+                <h4>New Customer</h4>
+                <form class="col-md-12" id="searchform">
                     <div ng-hide="checked">
                         <div ng-repeat="x in detailcustomer" >
                             <div class="col-md-6">
-
                                 <div class="form-group">
                                     <label for="fname">First Name</label>
                                     <input type="text" class="form-control" id="fname"ng-model="x.first_name"  placeholder="First Name"  required>
@@ -119,6 +119,7 @@
                     <button class="btn btn-success " value="Preview"  ng-click="previewBooking()">Preview</button>
                     <button class="btn btn-warning " value="Cancel" ng-click="searchForm()">Cancel</button>
                 </form>
+            </div>
                 </div>
 
             </div>

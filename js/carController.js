@@ -4,7 +4,7 @@
 mcarApp.controller('carController',['$scope','$http','$log',function($scope,$http,$log) {
     $scope.btnName="ADD";
     $scope.carToggle = function () {
-        $('#carInput').slideToggle();
+        //$('#carInput').slideToggle();
         $("#add").find('i').toggleClass('fa-plus fa-times');
     }
 

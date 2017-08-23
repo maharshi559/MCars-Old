@@ -545,3 +545,36 @@ header .right{
  #status-change table{
      margin: 10px 30px;
  }
+.media{
+    margin: 0;
+}
+ #media-style{
+     padding: 0px 15px;
+     margin: 0;
+
+ }
+
+ #media-style .panel{
+     height: 150px;
+ }
+
+.media-left{
+     padding: 20px;
+ }
+
+.media-body .media-heading{
+    margin: 20px 20px;
+
+}
+
+ .media-body p{
+     margin: 10px 20px;
+ }
+
+ .media-body p{
+     margin: 10px 20px;
+ }
+
+ #billing-button{
+     margin: 10px;
+ }
