@@ -4,6 +4,7 @@
 
        <div class="col-md-12" id="searchbox">
             <div class="form-group">
+               
                 <input type="text" ng-model="search" class="form-control" name="search" placeholder="Search for Bookings.." >
             </div>
        </div>
@@ -31,7 +32,7 @@
                 <td>{{x.status}}</td>
                 <td>
                     <i class="fa fa-pencil btn btn-default" data-toggle="modal" ng-click="statusModal(x.booking_id,x.status,x.number,x.car_id,x.customer_id,x.pickup_date,x.dropoff_date,x.price_day,x.extra_hr)" data-target="#myModal"></i>
-                    <i class="fa fa-trash btn btn-default" data-toggle="modal" ng-click="statusModal(x.booking_id,x.status,x.number,x.car_id,x.customer_id,x.pickup_date,x.dropoff_date,x.price_day,x.extra_hr)" data-target="#myModal"></i>
+                    <!--<i class="fa fa-trash btn btn-default" data-toggle="modal" ng-click="statusModal(x.booking_id,x.status,x.number,x.car_id,x.customer_id,x.pickup_date,x.dropoff_date,x.price_day,x.extra_hr)" data-target="#myModal"></i>-->
                     <!--<i class="fa fa-edit btn btn-default"  ng-click="updateData()"></i>-->
 
                 </td>
