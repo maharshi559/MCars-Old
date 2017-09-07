@@ -119,18 +119,18 @@
                            <table class="table table-hover table-inverse col-md-6" >
                                <tr>
                                    <td>Base Price</td>
-                                   <td>{{billings[0].diff}} @ {{billings[0].price_day}}/day</td>
-                                   <td>{{billings[0].diff * billings[0].price_day}}</td>
+                                   <td>{{(billings[0].diff)}}days + {{extra_days}}extra days @ {{billings[0].price_day}}/day</td>
+                                   <td>{{(billings[0].diff * billings[0].price_day) + (extra_days * billings[0].price_day)|currency:"₹":0}}</td>
                                </tr>
                                <tr>
                                    <td>Extra Charges</td>
-                                   <td>{{extra_hours}}hrs @ {{billings[0].extra_hr}}/hr</td>
-                                   <td>{{extra_hours * billings[0].extra_hr}}</td>
+                                   <td>{{extra_hours%24}}hrs @ {{billings[0].extra_hr}}/hr</td>
+                                   <td>{{(extra_hours%24) * billings[0].extra_hr|currency:"₹":0}}</td>
                                </tr>
                                <tr>
                                <td>Amount</td>
                                <td> </td>
-                               <td>{{(billings[0].diff * billings[0].price_day) + (extra_hours * billings[0].extra_hr)}}</td>
+                               <td>{{(billings[0].diff * billings[0].price_day) + (extra_days * billings[0].price_day) + ((extra_hours%24) * billings[0].extra_hr)|currency:"₹":0}}</td>
                            </tr>
                                <tr>
                                    <td>Damage</td>
@@ -146,7 +146,7 @@
                                <tr>
                                    <td>Total Amount</td>
                                    <td> </td>
-                                   <td>{{(billings[0].diff * billings[0].price_day)+(extra_hours * billings[0].extra_hr)+ (damage - discount)}}</td>
+                                   <td>{{(billings[0].diff * billings[0].price_day) + (extra_days * billings[0].price_day) + ((extra_hours%24) * billings[0].extra_hr) + (damage - discount)|currency:"₹":0}}</td>
                                </tr>
                            </table>
                        </div>

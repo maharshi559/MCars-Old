@@ -60,6 +60,9 @@ mcarApp.controller('bookingController',['$scope','$http','$log',function($scope,
                              }
                              else {
                                  $scope.extra_hours = Math.ceil($scope.return_drop - $scope.pick_drop);
+                                 $scope.extra_days = Math.trunc($scope.extra_hours/24);
+                                 console.log($scope.extra_hours/24);
+                                 console.log($scope.extra_days);
                              }
 
                          })
