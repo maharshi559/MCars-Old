@@ -72,4 +72,11 @@ if(count($data) >0) {
           echo "Data Updated";
       }
   }
+if ($status == "Paid" || $status == "Unpaid") {
+    $query = "UPDATE billing SET billing_status='$status' WHERE booking_id='$booking_id'";
+
+    if (mysqli_query($connect, $query)) {
+        echo "Data Updated";
+    }
+}
 ?>
