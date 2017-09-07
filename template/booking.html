@@ -145,7 +145,7 @@
                                <tr>
                                    <td>Total Amount</td>
                                    <td> </td>
-                                   <td>{{((billings[0].diff * billings[0].price_day) + (extra_hours * billings[0].extra_hr))- discount - damage}}</td>
+                                   <td>{{(billings[0].diff * billings[0].price_day)+(extra_hours * billings[0].extra_hr)+ (damage - discount)}}</td>
                                </tr>
                            </table>
                        </div>
